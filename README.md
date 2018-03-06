@@ -251,6 +251,8 @@ $var4 = '123a';
 var_dump(is_numeric($var4)); //false
 ```
 
+4. gettype — 获取变量的类型,`string gettype ( mixed $var )`返回 PHP 变量的类型 var.`不要使用 gettype() 来测试某种类型，因为其返回的字符串在未来的版本中可能需要改变。此外，由于包含了字符串的比较，它的运行也是较慢的。`使用 `is_*` 函数代替。
+
 #### 常量-系统常量及自定义常量
 
 1.系统常量
