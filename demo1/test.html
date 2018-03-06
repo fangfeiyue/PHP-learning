@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select id="province">
+    </select>
+    <select id="city">
+    </select>
+    <select id="country">
+    </select>
+
+    <script>
+        let provinceOption = '',
+
+            province = ['河北', '山东', '河南', '安徽'],
+
+            city = {
+                '河北': ['正定', '石家庄'],
+                '山东': ['济南', '章丘'],
+                '河南': ['郑州', '漯河'],
+                '安徽': ['安徽1', '安徽2']
+            },
+
+            country = {
+                '正定':['正定1', '正定2'],
+                '石家庄':['石家庄1', '石家庄2'],
+                '济南':['济南1','济南2'],
+                '章丘':['章丘1', '章丘2'],
+                '郑州':['郑州1','郑州2'], 
+                '漯河':['漯河1', '漯河2'],
+                '安徽1':['安徽11', '安徽12'], 
+                '安徽2':['安徽21', '安徽22']
+            },
+
+            citySelect = document.getElementById('city'),
+            countrySelect = document.getElementById('country'),
+            provinceSelect = document.getElementById('province');
+
+        for (let i = 0, len = province.length; i < len; i++){
+            provinceOption += "<option value='" + province[i] + "'>" + province[i] + "</option>";
+        }        
+
+        provinceSelect.innerHTML = provinceOption;
+
+        // 城市选择
+        provinceSelect.onchange = function(event){
+            changeOptionsText(citySelect, city[this.value]);
+            changeOptionsText(countrySelect, country[city[this.value][0]]);
+        };   
+
+        citySelect.onchange = function(event){
+            changeOptionsText(countrySelect, country[this.value]);
+        };     
+
+        function changeOptionsText(element, arr){
+            provinceOption = '';
+            console.log(country[this.value]);
+            for (let i = 0, len = arr.length; i < len; i++){
+                provinceOption += "<option value='" + arr[i] + "'>" + arr[i] + "</option>";
+            } 
+            element.innerHTML = provinceOption;
+        }
+
+    </script>
+</body>
+</html>
