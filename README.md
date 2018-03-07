@@ -271,13 +271,13 @@ echo TEST;
 2.常量名称最好大写，以字母或者下划线开始
 3.常量默认区分大小写
 4.常量定义之后可以在任何位置使用，作用域是全局的
-5.常量的值可以是标量类型也可以是数组
+5. 
 ```
 - const定义常量
 ```
 const TEST1 = 'www.wanliyangguang.com';
 echo TEST1;
-//根据常量的名称获取常量的值
+// 根据常量的名称获取常量的值
 echo constant('TEST1');//www.wanliyangguang.com
 ```
 - defined检测常量是否存在,如果存在返回true，否则返回false
@@ -302,6 +302,7 @@ print_r(get_defined_constants());
 
 #### PHP中的预定义变量
 
+- 所有的预定义变量都是全局变量
 - $GLOBALS超全局变量，包含以下所有的预定义变量
 - $_SERVERS服务器和执行环境信息变量
 - $_ENV环境变量

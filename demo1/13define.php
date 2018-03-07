@@ -11,3 +11,5 @@ const TEST_ARRAY = array(1, 2, 3);
 // define('TEST_ARRAY', array(1, 2, 3));
 echo TEST_ARRAY, '<br/>';
 var_dump(TEST_ARRAY);
+
+echo constant('TEST_ARRAY'), '<br/>';
