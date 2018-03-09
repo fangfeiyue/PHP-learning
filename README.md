@@ -310,8 +310,66 @@ print_r(get_defined_constants());
 - $_SESSION Http session变量
 - $_FILES   文件上传信息变量
 - $_GET     GET变量,主要接收以问好形式传递的数据
+```
+// html文件
+<body>
+    <a href="testA.php?userName=fang&age=12">点击我</a>
+</body>
+
+// 或者html文件
+<form action="doSearch.php" method="get">
+    <input type="search" name="keyword" id="" placeholder="请输入搜索内容">
+    <input type="submit" value="搜索">
+</form>
+
+
+//php文件
+<?php
+header('content-type:text/html;charset=utf-8');
+echo $_GET['userName'];
+echo $_GET['age'];
+```
 - $_POST    POST变量
+```
+// html文件
+<form action="doReg.php" method="post">
+    <table border="1" width="70%" cellpadding="0" cellspacing="0" bgcolor="#abcdef ">
+        <tr>
+            <td align="right">用户名</td>
+            <td><input type="text" name="userName" placeholder="请输入合法用户名"></td>
+        </tr>
+        <tr>
+            <td align="right">密码</td>
+            <td><input type="password" name="password"  placeholder="请输入密码"></td>
+        </tr>
+        <tr>
+            <td align="right">邮箱</td>
+            <td><input type="text" name="email" placeholder="请输入邮箱"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="注册"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+                <input type="radio" name="sex" id="" value="男">男
+                <input type="radio" name="sex" id="" value="女">女
+                <input type="radio" name="sex" id="" value="保密">保密
+            </td>
+        </tr>
+    </table>
+</form>
+
+// php文件
+
+echo $_POST['userName'], '<br/>';
+echo $_POST['password'], '<br/>';
+echo $_POST['email'], '<br/>';
+echo $_POST['sex'], '<br/>';
+```
 - $_REQUEST     $_GET+$_POST+$_COOKIE
+
+
 
 #### PHP中的表达式与运算符
 
