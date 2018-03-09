@@ -311,7 +311,7 @@ print_r(get_defined_constants());
 - $_FILES   文件上传信息变量
 - $_GET     GET变量,主要接收以问好形式传递的数据
 - $_POST    POST变量
-- $_REQUEST     $_GET+$_POST_$COOKIE
+- $_REQUEST     $_GET+$_POST+$_COOKIE
 
 #### PHP中的表达式与运算符
 

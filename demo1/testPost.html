@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+</head>
+<body>
+    <form action="doReg.php" method="post">
+         <table border="1" width="70%" cellpadding="0" cellspacing="0" bgcolor="#abcdef ">
+             <tr>
+                 <td align="right">用户名</td>
+                 <td><input type="text" name="userName" placeholder="请输入合法用户名"></td>
+             </tr>
+             <tr>
+                 <td align="right">密码</td>
+                 <td><input type="password" name="password"  placeholder="请输入密码"></td>
+             </tr>
+             <tr>
+                 <td align="right">邮箱</td>
+                 <td><input type="text" name="email" placeholder="请输入邮箱"></td>
+             </tr>
+             <tr>
+                 <td colspan="2"><input type="submit" value="注册"></td>
+             </tr>
+             <tr>
+                 <td>性别</td>
+                 <td>
+                     <input type="radio" name="sex" id="" value="男">男
+                     <input type="radio" name="sex" id="" value="女">女
+                     <input type="radio" name="sex" id="" value="保密">保密
+                 </td>
+             </tr>
+         </table>
+    </form>
+</body>
+</html>
