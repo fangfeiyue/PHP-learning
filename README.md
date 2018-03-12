@@ -394,6 +394,10 @@ echo $var--, "<br/>"; //13
 ```
 
 2.bool类型不支持自增自减运算符
+```
+$bool = true;
+echo '<br/>', ++$bool; // 1
+```
 
 3.null只支持自增运算符号
 ```
@@ -401,10 +405,32 @@ $var = null;
 echo ++ $var; //1
 ```
 
-4.得到指定字符的ascii码值
+4.得到指定字符的ascii码值:int ord(string $string)
 ```
 $var = 'a';
 echo ord($var); // 97
+```
+
+6.string chr (int $ascii)返回指定的字符
+```
+echo chr(97); // a
+```
+
+5.取余数
+```
+echo 3 % 8, '<br/>'; //3
+echo 3 % -8, '<br/>'; //3
+echo -3 % 8, '<br/>'; //-3
+echo -3 % -8, '<br/>'; //-3
+```
+
+6.字符串只支持递增
+```
+$str = 'a';
+echo '<br/>', ++$str; //b
+
+$str = 'z';
+echo '<br/>', ++$str; //aa
 ```
 
 2017年7月1日 星期六

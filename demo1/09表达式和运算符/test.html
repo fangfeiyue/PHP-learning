@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = new Array();
+        console.log(arr.__proto__);
+
+
+        function Person(){
+            name: 'doudou'
+        }
+
+        // Person.prototype = {};
+
+        let person1 = new Person();
+        console.log(person1);
+        console.log(person1);
+
+        let person2 = new Person();
+        console.log(person2);
+
+        /*
+            1.new {} 原型对象关联
+            2. new 执行构造函数，传参，生成一个新对象，改变上下文执行环境也即是改变this的指向
+            3. new 新 原来 跟原型关联的对象
+        */
+
+        console.log(person1 instanceof Person);
+        console.log(person1 instanceof Object);
+
+        console.log(person1.__proto__.constructor === Person);
+
+
+
+        //
+        let dou = {};
+        let dou1 = new Object();
+
+        let dou2 = new Person();
+
+        let dou3 = Object.create({name:'fang'});
+        
+
+
+
+        // 继承
+
+
+
+
+        function Parent(){
+
+        }
+
+        function Child(){
+            Parent.cal(this);
+        }
+
+
+        Child.prototype = new Parent();
+
+
+        function Parent(){
+            Parent.call(this);
+        }
+
+        function Child(){
+
+        }
+
+        Child.prototype = new Parent();
+
+        Child.prototype = Parent.prototype;
+
+
+        
+
+        class Parent(){
+
+        }
+
+        class Child extends Parent (){
+
+        }
+
+
+    </script>
+</body>
+</html>
