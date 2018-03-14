@@ -37,3 +37,12 @@ echo '<br/>', ord('a');
 
 // 返回指定的字符
 echo '<br/>', chr(98);
+
+// 比较运算符
+var_dump(1==true);
+var_dump(1===true);
+var_dump(1<>2);
+
+var_dump(1<=>1);
+var_dump(null ?? 2 ?? 3 ?? 77);
+
