@@ -153,7 +153,8 @@ unset($a, $b, $c);//可以传多个参数
 - 可变变量的例子
 ```$i =  'j';
 $j = 'k';
-$k = 'hello wolrd';```
+$k = 'hello wolrd';
+```
 
 - 打印变量的详细信息
 var_dump(params);
