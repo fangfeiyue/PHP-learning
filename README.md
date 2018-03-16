@@ -713,7 +713,7 @@ print_r($student);//stdClass Object ( [name] => fang [age] => 18 )
 
 6.可变参数列表
 
-- func_num_args()//返回函数参数的长度
+- func_num_args()//返回函数参数的长度,func_num_args — Returns the number of arguments passed to the function
 ```
 function test(){
     echo func_num_args(), "<br/>";
@@ -1473,26 +1473,7 @@ select now(）返回当前的时间
 
 8.查看数据库下已有数据表：SHOW TABLES;
 
-9查看指定数据表的详细信息：SHOW_CREATE TABLE btl_name;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+9.查看指定数据表的详细信息：SHOW_CREATE TABLE btl_name;
 
 #### 常量
 1.PHP中的常量分为两种，一种是自定义的，一种是系统的。自定义常量一般通过define()函数来定义。
