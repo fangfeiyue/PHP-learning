@@ -6,4 +6,4 @@ function test(array $arr){
     print_r($arr);
 }
 
-test(2);
+test([1, 2]);
