@@ -788,6 +788,7 @@ bar();//能调用时因为所有的函数都是全局函数
 function test(){
     $message = "hello world";
     $say = function($str) use ($message){
+        global $message; //这里根本没有作用，使用global必须是最外层声明的变量
         echo $message, '11', "<br/>";
         echo $str;
     };
