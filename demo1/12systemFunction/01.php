@@ -71,4 +71,32 @@ echo strrev($fileName) ,'<br/>';
 
 
 
+// 字符串加密函数
+$passworld = 'fang?@';
+echo md5($passworld), '<br/>';
 
+
+
+// 打乱字符串
+echo str_shuffle('1254'), '<br/>';
+
+
+
+// 字符串分割操作
+$str = 'abc,defc,qml,dde';
+print_r(explode(',', $str));
+echo '<br/>';
+
+
+
+// 将一个一维数组的值转化为字符串
+$arr = array(1, 2, 3, 4, 5);
+echo implode(';', $arr), '<br/>';
+
+
+
+// 格式化字符串
+$number = 5;
+$str = '上海';
+echo sprintf('there are %u million cars in %s', $number, $str ), '<br/>';
+echo sprintf("两位小数%1\$.2f", 1),'<br/>';
