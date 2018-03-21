@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 居中布局 -->
+
+    <!-- 水平居中 -->
+    <!-- 1.使用inline-block+text-align -->
+    <!-- 原理：先将子框由块级元素改变为行内块元素，再通过设置行内块元素居中以达到水平居中。 -->
+    <!-- 用法：对子框设置display:inline-block，对父框设置text-align:center。 -->
+
+    <!-- 优点：兼容性好，甚至可以兼容ie6、ie7 -->
+    <!-- 缺点：child里的文字也会水平居中，可以在.child添加text-align:left;还原 -->
+    <style>
+        .child {
+            display: inline-block;
+        }
+
+        .parent {
+            text-align: center;
+        }
+    </style>
+    <div class="parent">
+        <div class="child">deom</div>
+    </div>
+
+    <!-- 2.使用table+margin -->
+    <!-- 原理：先将子框设置为块级表格来显示（类似 ），再设置子框居中以达到水平居中。 -->
+    <!-- 用法：对子框设置display:table，再设置margin:0 auto。 -->
+
+    <!-- 优点：只设置了child，ie8以上都支持 -->
+    <!-- 缺点：不支持ie6、ie7,将div换成table -->
+    <style>
+        .child1 {
+            display: table;
+            margin: 0 auto;
+        }
+    </style>
+    <div class="parent1">
+        <div class="child1">水平居中方法2</div>
+    </div>
+    
+</body>
+
+</html>
