@@ -1007,7 +1007,6 @@ logInfo(number_format($x, 2), false);//7,895.56
 日期/时间字符串。正确格式的说明详见 日期与时间格式。
 
 - now：用来计算返回值的时间戳。
-
 ### PHP日期时间函数库
 
 1.日期格式化函数
@@ -1050,6 +1049,7 @@ logInfo(microtime(true), false);//1499924809.3547
 
 - strtotime()
 ```
+echo strtotime('-3 weeks'), '<br/>';
 logInfo(date('Y-m-d H:i:s', strtotime('last day of -1 months')),false);//某月第一天
 logInfo(date('Y-m-d H:i:s', strtotime('first day of -1 months')),false);//某月最后一天
 ```
