@@ -7,7 +7,9 @@ header('content-type:text/html;charset=utf-8');
 $str = "3,4,5,65,2,4,4444";
 $arr = explode(',', $str);
 print_r($arr);
-echo array_sum($arr);
+echo array_sum($arr), '<br/>';
+echo array_product($arr), '<br/>';
+
 
 
 

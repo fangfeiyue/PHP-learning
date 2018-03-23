@@ -1457,6 +1457,7 @@ while (list($key, $value)=each($arr)){
 2018年03月23日
 
 ### 常用数组函数解析
+
 1. array_sum() 将数组中的所有值相加，并返回结果。
 ```
 $str = "3,4,5,65,2,4,4444";
@@ -1464,6 +1465,12 @@ $arr = explode(',', $str);
 print_r($arr);
 echo array_sum($arr);
 ```
+
+2. array_product() 计算数组中所有值的乘积
+```
+echo array_product($arr);
+```
+
 
 
 2017年07月30日 星期日
