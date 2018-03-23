@@ -30,8 +30,9 @@ print_r($stack);
 
 
 
-
-
+echo '<hr/>';
+$str = join('', range(0, 10));
+echo $str;
 
 
 

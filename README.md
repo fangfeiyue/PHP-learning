@@ -1502,9 +1502,26 @@ $fruit = array_shift($stack);//orange
 print_r($stack);
 ```
 
-7.
+7. array_unshift 在数组开头插入一个或多个单元
+```
+$queue = array("orange", "banana");
+array_unshift($queue, "apple", "raspberry");
+print_r($queue);
 
-8.
+// 输出
+Array
+(
+    [0] => apple
+    [1] => raspberry
+    [2] => orange
+    [3] => banana
+)
+```
+
+8. join — 别名 implode(). implode  将一个一维数组的值转化为字符串
+```
+$str = join('', range(0, 10));
+```
 
 9.
 
