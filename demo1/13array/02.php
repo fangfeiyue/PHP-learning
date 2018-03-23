@@ -13,6 +13,15 @@ echo array_product($arr), '<br/>';
 
 
 
+echo '<hr/>';
+// 2.截取扩展名fjasl.txt.png.jpeg，并检测扩展名是否在['jpg', 'jpeg', 'gif', 'png']中
+$str = 'fjasl.txt.png.jpegs';
+$arr = explode('.', $str);
+$ext = end($arr);
+echo in_array ($ext, $arr);
+
+
+
 
 
 

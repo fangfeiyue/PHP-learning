@@ -1471,7 +1471,14 @@ echo array_sum($arr);
 echo array_product($arr);
 ```
 
-
+3. in_array  检查数组中是否存在某个值
+```
+// 截取扩展名fjasl.txt.png.jpeg，并检测扩展名是否在['jpg', 'jpeg', 'gif', 'png']中
+$str = 'fjasl.txt.png.jpegs';
+$arr = explode('.', $str);
+$ext = end($arr);
+echo in_array ($ext, $arr);
+```
 
 2017年07月30日 星期日
 
