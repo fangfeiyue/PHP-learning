@@ -1480,6 +1480,34 @@ $ext = end($arr);
 echo in_array ($ext, $arr);
 ```
 
+4. array_pop — 弹出数组最后一个单元（出栈）.返回 array 的最后一个值。如果 array 是空（如果不是一个数组），将会返回 NULL 。
+```
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_pop($stack);
+echo $fruit; //raspberry
+print_r($stack);
+```
+
+5. array_push 将一个或多个单元压入数组的末尾（入栈）
+```
+$stack = array("orange", "banana");
+array_push($stack, "apple", "raspberry");
+print_r($stack);
+```
+
+6. array_shift 将数组开头的单元移出数组
+```
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_shift($stack);//orange
+print_r($stack);
+```
+
+7.
+
+8.
+
+9.
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话

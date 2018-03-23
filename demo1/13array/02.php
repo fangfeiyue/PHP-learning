@@ -21,6 +21,18 @@ $ext = end($arr);
 echo in_array ($ext, $arr);
 
 
+echo '<hr/>';
+$stack = array("orange", "banana", "apple", "raspberry");
+$fruit = array_pop($stack);
+echo $fruit; //raspberry
+print_r($stack);
+
+
+
+
+
+
+
 
 
 
