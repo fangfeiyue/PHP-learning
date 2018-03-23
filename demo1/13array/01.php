@@ -217,7 +217,26 @@ foreach($arr as $value){
     }
 }
 
+$array = [0, 1, 2];
+foreach ($array as &$val) {
+    // 返回数组中的当前单元
+    var_dump(current($array));
+}
+
+$transport = array('foot', 'bike', 'car', 'plane');
+$mode = current($transport); // $mode = 'foot';
+var_dump($mode); // foot
+
+
+
+
+
 // 通过数组指针遍历数组
+$arr = [23, 4, 435, 23, 12, 53];
+echo '当前指针所在位置元素的键名为'.key($arr).'<br/>';
+echo '当前指针所在位置元素的键值为'.current($arr).'<br/>';
+
+
 
 // 通过each()和list()遍历数组
 
