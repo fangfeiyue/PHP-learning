@@ -237,6 +237,25 @@ echo '当前指针所在位置元素的键名为'.key($arr).'<br/>';
 echo '当前指针所在位置元素的键值为'.current($arr).'<br/>';
 
 
+$arr = [
+    'a', 'b', 'c',
+    35=>'test',
+    46=>0, //当为假的时候如果while中的条件是current()，数组下面的元素就不再输出了
+    'username'=>'zhang',
+    'age'=>12
+];
+
+while(current($arr)){
+    echo key($arr), current($arr).'<br/>';
+    next($arr);
+}
+
+echo '<hr/>';
+
+while(!is_null(key($arr))){
+    echo key($arr), current($arr).'<br/>';
+    next($arr);
+}
 
 // 通过each()和list()遍历数组
 

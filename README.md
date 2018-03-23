@@ -1412,7 +1412,27 @@ echo 'this is a test';
 - prev($array):将数组指针向上移动一位，并且返回当前指针所在位置的键值；如果没有，返回false
 - reset($array):将数组指针移动到数组开始，并且返回当前指针所在位置的键值；如果没有，返回false
 - end($array):将数组指针移动到数组的末尾，并且返回当前指针所在位置的键值；如果没有，返回false
+```
+$arr = [
+    'a', 'b', 'c',
+    35=>'test',
+    46=>0, //当为假的时候如果while中的条件是current()，数组下面的元素就不再输出了
+    'username'=>'zhang',
+    'age'=>12
+];
 
+while(current($arr)){
+    echo key($arr), current($arr).'<br/>';
+    next($arr);
+}
+```
+当为假的时候如果while中的条件是current()，数组下面的元素就不再输出了，此时需要用下面的方法
+```
+while(!is_null(key($arr))){
+    echo key($arr), current($arr).'<br/>';
+    next($arr);
+}
+```
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话
