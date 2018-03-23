@@ -257,9 +257,25 @@ while(!is_null(key($arr))){
     next($arr);
 }
 
-// 通过each()和list()遍历数组
+// 通过each()和
 
 
+// list()遍历数组
+echo '<hr/>';
+$arr = ['a', 'b', 'c'];
+list($var1, $var2, $var3) = $arr;
+echo $var1, $var2, $var3.'<br/>';
+
+echo '<hr/>';
+$foo = array("bob", "fred", "jussi", "jouni", "egon", "marliese");
+$bar = each($foo);
+print_r($bar);
+
+echo '<hr/>';
+$arr = [23, 3,4, 45, 456, 556];
+while (list($key, $value)=each($arr)){
+    echo $key.'==>'.$value.'<br/>';
+}
 
 
 

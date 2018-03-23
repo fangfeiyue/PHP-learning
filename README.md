@@ -1433,6 +1433,27 @@ while(!is_null(key($arr))){
     next($arr);
 }
 ```
+
+3.array each ( array &$array );返回数组中当前的键／值对并将数组指针向前移动一步。
+
+返回 array 数组中当前指针位置的键／值对并向前移动数组指针。键值对被返回为四个单元的数组，键名为0，1，key和 value。单元 0 和 key 包含有数组单元的键名，1 和 value 包含有数据。
+如果内部指针越过了数组的末端，则 each() 返回 FALSE。
+```
+<?php
+$foo = array("bob", "fred", "jussi", "jouni", "egon", "marliese");
+$bar = each($foo);
+print_r($bar);
+
+
+// 遍历数组
+$arr = [23, 3,4, 45, 456, 556];
+while (list($key, $value)=each($arr)){
+    echo $key.'==>'.$value.'<br/>';
+}
+?>
+```
+注意：在执行 each() 之后，数组指针将停留在数组中的下一个单元或者当碰到数组结尾时停留在最后一个单元。如果要再用 each 遍历数组，必须使用 reset()。
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话
