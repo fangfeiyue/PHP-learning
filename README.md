@@ -1546,6 +1546,23 @@ Array
 )
 ```
 
+10. array_rand(array, [num]) 从数组中随机取出一个或多个单元
+
+参数
+- array 输入的数组。
+
+- num 指明了你想取出多少个单元。
+```
+$arr = ['fang', 'fei', 'yue', 'jia', 'you'];
+print_r(array_rand(array_flip($arr), 3));
+```
+
+11. array_flip 交换数组中的键和值
+```
+$arr = ['fang', 'fei', 'yue', 'jia', 'you'];
+print_r(array_rand(array_flip($arr), 3));
+```
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话

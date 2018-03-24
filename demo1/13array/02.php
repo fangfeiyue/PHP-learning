@@ -44,3 +44,12 @@ print_r(array_merge($arr, $arr1));
 
 
 
+// array_rand
+echo '<hr/>';
+$arr = ['fang', 'fei', 'yue', 'jia', 'you'];
+print_r(array_rand(array_flip($arr), 3));
+
+
+
+
+
