@@ -1569,14 +1569,13 @@ print_r(array_rand(array_flip($arr), 3));
 ```
 
 13. array_keys 返回数组中部分的或所有的键名
-```
-
-```
 
 14. array_values 返回数组中所有的值
-```
 
-```
+15. strip_tags 从字符串中去除 HTML 和 PHP 标记
+
+
+
 
 2017年07月30日 星期日
 

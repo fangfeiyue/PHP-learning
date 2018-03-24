@@ -1,5 +1,41 @@
-<html>
+<?php
+	date_default_timezone_set('prc');
+	header('content-type:text/html;charset=utf-8');
 
+	$commentsArr =[];
+	$fileName = "msg.txt";
+	
+	if (file_exists($fileName)){
+		$comments     = file_get_contents($fileName);
+		if (strlen($comments)){
+			$commentsArr = unserialize($comments);
+		}
+	}
+
+	function getUserInput($str){
+		//strip_tags — 从字符串中去除 HTML 和 PHP 标记
+		return strip_tags( $_POST[$str]);
+	}
+
+	if (isset($_POST['pubMsg'])){
+		$time     = time();
+		$title    = getUserInput('title');
+		$content  = getUserInput('content');
+		$userName = getUserInput('userName');
+		$userInput = compact('userName', 'title', 'content', 'time');
+		
+		array_push($commentsArr, $userInput);
+		$commentsArr = serialize($commentsArr);
+
+		if (file_put_contents($fileName, $commentsArr)){
+			echo "<script>alert('留言成功');location.href='./messageBoard.php'</script>"; 
+		}else{
+			echo "<script>alert('留言失败');location.href='./messageBoard.php'</script>"; 
+		}
+	}
+?>
+<!DOCTYPE>
+<html>
 <head>
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
@@ -49,23 +85,30 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php
+							if (is_array($commentsArr) && count($commentsArr)>0){
+								$i = 0;
+								foreach($commentsArr as $comment){
+?>
 						<tr class="success">
 							<td>
-								1
+								<?php echo $i++;?>
 							</td>
 							<td>
-								TB - Monthly
+								<?php echo $comment['userName'];?>
 							</td>
 							<td>
-								01/04/2012
+								<?php echo $comment['title'];?>
 							</td>
 							<td>
-								Default
+								<?php echo date('Y-m-d H:i:m',$comment['time']);?>
 							</td>
 							<td>
-								Default
+								<?php echo $comment['content'];?>
 							</td>
 						</tr>
+						<?php 
+						}} ?>
 					</tbody>
 				</table>
 				<form class="form-horizontal" action="#" method="post">
@@ -73,24 +116,24 @@
 					<div class="control-group">
 						<label class="control-label" for="inputEmail">用户名</label>
 						<div class="controls">
-							<input id="inputEmail" name="userName" type="text" />
+							<input id="inputEmail" required name="userName" type="text" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="inputPassword">标题</label>
 						<div class="controls">
-							<input id="inputPassword" type="text" name="title" />
+							<input id="inputPassword" required type="text" name="title" />
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="inputPassword">内容</label>
 						<div class="controls">
-							<textarea name="content" rows="5" cols="30"></textarea>
+							<textarea name="content" required rows="5" cols="30"></textarea>
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<input type="submit" class="btn btn-primary" value="发布留言"/>
+							<input type="submit" name="pubMsg" class="btn btn-primary" value="发布留言"/>
 						</div>
 					</div>
 				</form>
