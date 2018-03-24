@@ -51,5 +51,22 @@ print_r(array_rand(array_flip($arr), 3));
 
 
 
+// shuffle 打乱数组
+echo '<hr/>';
+$arr = ['f', 'a', 'n', 'g', 'f', 'e', 'i'];
+shuffle($arr);
+echo '打乱后的数组<br/>';
+print_r($arr); 
+
+
+
+
+
+// array_keys && array_values
+echo '获取数组中的键名和键值';
+echo '<hr/>';
+print_r(array_keys($arr));
+echo '<hr/>';
+print_r(array_values($arr));
 
 

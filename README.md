@@ -1563,6 +1563,21 @@ $arr = ['fang', 'fei', 'yue', 'jia', 'you'];
 print_r(array_rand(array_flip($arr), 3));
 ```
 
+12. shuffle 打乱数组
+```
+
+```
+
+13. array_keys 返回数组中部分的或所有的键名
+```
+
+```
+
+14. array_values 返回数组中所有的值
+```
+
+```
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话
