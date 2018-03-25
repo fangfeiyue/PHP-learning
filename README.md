@@ -1622,7 +1622,7 @@ print_r(array_rand(array_flip($arr), 3));
 
 2018年3月24日23:19:13
 
-#### cookie
+### cookie
 
 1. 什么是cookie
 
@@ -1642,7 +1642,7 @@ print_r(array_rand(array_flip($arr), 3));
 
 2018年3月25日11:59:51
 
-#### 文件目录操作
+### 文件目录操作
 
 1. filetype — 取得文件类型
 
