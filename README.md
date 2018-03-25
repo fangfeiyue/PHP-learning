@@ -1640,6 +1640,42 @@ print_r(array_rand(array_flip($arr), 3));
 
 - setcookie 发送 Cookie [具体描述](http://php.net/manual/zh/function.setcookie.php)
 
+2018年3月25日11:59:51
+
+#### 文件目录操作
+
+1. filetype — 取得文件类型
+
+2. filesize — 取得文件大小,返回文件的字节数
+
+3. filectime — 取得文件的 inode 修改时间
+
+4. filemtime — 取得文件修改时间
+
+5. fileatime — 取得文件的上次访问时间
+
+6. is_file — 判断给定文件名是否为一个正常的文件
+
+7. is_readable — 判断给定文件名是否可读
+
+8. is_writable — 判断给定的文件名是否可写
+
+9. is_executable — 判断给定文件名是否可执行
+
+10. pathinfo — 返回文件路径的信息
+
+11. basename — 返回路径中的文件名部分
+
+12. dirname — 返回路径中的目录部分
+
+13. file_exists — 检查文件或目录是否存在
+
+14. touch — 设定文件的访问和修改时间,如果文件不存在，则会被创建
+
+15. unlink — 删除文件
+
+16. rename — 重命名一个文件或目录
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话
