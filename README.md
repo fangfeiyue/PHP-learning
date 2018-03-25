@@ -1676,6 +1676,8 @@ print_r(array_rand(array_flip($arr), 3));
 
 16. rename — 重命名一个文件或目录
 
+17. copy — 拷贝文件,拷贝远程文件需要配置php.ini文件中的`allow_url_fopen = On`
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话
