@@ -1678,6 +1678,16 @@ print_r(array_rand(array_flip($arr), 3));
 
 17. copy — 拷贝文件,拷贝远程文件需要配置php.ini文件中的`allow_url_fopen = On`
 
+18. fopen — 打开文件或者 URL
+
+19. fread — 读取文件（可安全用于二进制文件）
+
+20. ftell — 返回文件指针读/写的位置
+
+21. fseek — 在文件指针中定位
+
+22. fclose — 关闭一个已打开的文件指针
+
 2017年07月30日 星期日
 
 1.session_start启动新会话或者重用现有会话
