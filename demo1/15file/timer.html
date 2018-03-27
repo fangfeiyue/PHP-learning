@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id="test">0</span>
+    <script>
+        // console.log('胡乱拼凑的代码');
+        // var i = 0;
+        // var display = document.getElementById('test');
+
+        // var t = window.setInterval(function(){
+        //     console.log(i);
+        //     display.innerHTML = i;
+        //     i++;
+        // }, 1000);
+
+        // onpagehide=function(){
+        //     alert('隐藏了');
+        // }
+
+        // onpageshow=function(){
+        //     alert('显示了');
+        // }
+
+        // window.onresize=function(){
+        //     alert(111);
+        // }
+
+
+        // alert(document.hidden);
+    
+       var i = 0;
+       var timer = 0;
+       var endtime = 0;
+       var startime = 0;
+       var display = document.getElementById('test');
+
+       var tt = setInterval(function(){
+            if (document.hidden){
+                endtime = new Date().getTime();
+                timer = endtime - startime;
+                console.log(timer);
+            }else{
+                startime = new Date().getTime();
+                i = i + parseInt(timer/1000);
+                display.innerHTML = i;
+                timer = 0;
+                i++;
+            }
+        }, 1000);
+
+    </script>
+</body>
+</html>
