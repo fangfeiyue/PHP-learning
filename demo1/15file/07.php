@@ -21,3 +21,6 @@ foreach ($data as $val){
 
 fclose($handle);
 
+print_r(file_get_contents($fileName));
+
+strip_tags

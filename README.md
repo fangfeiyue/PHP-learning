@@ -1714,7 +1714,15 @@ print_r(array_rand(array_flip($arr), 3));
 
 1. fwrite — 写入文件（可安全用于二进制文件）
 
-2. 
+2. file_get_contents — 将整个文件读入一个字符串
+
+3. strip_tags — 从字符串中去除 HTML 和 PHP 标记
+
+4. json_encode — 对变量进行 JSON 编码
+
+5. json_decode — 对 JSON 格式的字符串进行解码
+
+
 
 2017年07月30日 星期日
 
