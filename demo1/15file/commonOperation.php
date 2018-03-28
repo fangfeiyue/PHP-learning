@@ -111,5 +111,20 @@ function renameFile(string $oldFileName, string $newFileName){
  * @return true || false
  */
 function cutFile(string $fileName, string $dest){
-    
+    if (!file_exists($fileName)){
+        return false;
+    }
+    if (!is_dir($dest)){
+        mkdir($dest, 0777, true);
+    }
+    $destName = $dest.DIRECTORY_SEPARATOR.basename($fileName);
+    if (is_file($dest)){
+        return false;
+    }
+    if (rename($fileName, $destName)){
+        return true;
+    }
+    return false;
 }
+
+var_dump(cutFile('old.txt', './b'));
