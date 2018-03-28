@@ -1801,6 +1801,12 @@ select now(）返回当前的时间
 9.查看指定数据表的详细信息：SHOW_CREATE TABLE btl_name;
 
 
+## 彩蛋
+
+vscode插件
+
+- php-docblocker 给函数添加注释
+
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
