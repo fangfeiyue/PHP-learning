@@ -1805,7 +1805,9 @@ select now(）返回当前的时间
 
 vscode插件
 
-- php-docblocker 给函数添加注释
+- php-docblocker 给函数添加注释，使用方法:/**回车即可
+
+-
 
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
