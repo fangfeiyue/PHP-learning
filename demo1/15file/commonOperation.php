@@ -198,3 +198,16 @@ function readFileContent(string $fileName){
 
 
 // echo readFileContent('newFile.txt');
+
+
+function readFileContentToArray(string $fleName, bool $skipEmptyLines=false){
+    if (is_file($fileName)||is_readable($fileName)){
+        if ($skipEmptyLines){
+            return file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        }else{
+            return file($fileName);
+        }
+    }
+
+    return false;
+}
