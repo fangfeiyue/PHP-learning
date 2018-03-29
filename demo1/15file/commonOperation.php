@@ -178,6 +178,23 @@ function transByte(int $byte, int $precision=2){
     }
 }
 
-var_dump(getFileInfo('newFile.txt'));
+// var_dump(getFileInfo('newFile.txt'));
 
 
+
+/**
+ * 读取文件内容
+ *
+ * @param string $fileName 要读取的文件名
+ * @return mixed 返回读取到的文件内容 || false
+ */
+function readFileContent(string $fileName){
+    if (is_file($fileName) || is_readable($fileName)){
+        return file_get_contents($fileName);
+    }
+
+    return false;
+}
+
+
+// echo readFileContent('newFile.txt');
