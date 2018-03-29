@@ -127,4 +127,57 @@ function cutFile(string $fileName, string $dest){
     return false;
 }
 
-var_dump(cutFile('old.txt', './b'));
+// var_dump(cutFile('old.txt', './b'));
+
+
+
+
+/**
+ * 获取文件信息
+ *
+ * @param string $fileName文件名称
+ * @return 文件信息相关数组||false
+ */
+function getFileInfo(string $fileName){
+    if (!is_file($fileName) || !is_readable($fileName)){
+        return false;
+    }
+    return [
+        'atime'=>date("Y-m-d H:i:s", fileatime($fileName)),
+        'mtime'=>date("Y-m-d H:i:s", filemtime($fileName)),
+        'ctime'=>date("Y-m-d H:i:s", filectime($fileName)),
+        'size'=>transByte(filesize($fileName)),
+        'type'=>filetype($fileName),
+    ];
+}
+
+/**
+ * 字节单位转换的函数
+ *
+ * @param integer $byte 字节
+ * @param integer $precision 默认精度，保留小数点后两位
+ * @return string 转换之后的内容
+ */
+function transByte(int $byte, int $precision=2){
+    $kb = 1024;
+    $mb = 1024 * $kb;
+    $gb = 1024 * $mb;
+    $tb = 1024 * $gb;
+
+    switch ($byte){
+        case $byte >= $tb:
+            return round($byte/$tb, $precision).'TB';
+        case $byte >= $gb:
+            return round($byte/$gb, $precision).'GB';
+        case $byte >= $mb:
+            return round($byte/$mb, $precision).'MB';
+        case $byte >= $kb:
+            return round($byte/$kb, $precision).'KB';
+        default:
+            return $byte.'B';
+    }
+}
+
+var_dump(getFileInfo('newFile.txt'));
+
+
