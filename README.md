@@ -1817,6 +1817,7 @@ select now(）返回当前的时间
     - 整数型
     ![整数类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/%E6%95%B4%E6%95%B0%E5%9E%8B.png)
     - 浮点数
+    ![整数类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/float.png)
     - 定点数
 - 字符串类型
 - 日期时间类型
