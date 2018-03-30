@@ -1785,7 +1785,7 @@ select now(）返回当前的时间
 
 - 不存在再创建：CREATE DATABASE [IF NOT   EXISTS] db_name;
 
-- 产看当前服务器下全部的数据库：SHOW DATABASE|SCHEMAS;
+- 查看看当前服务器下全部的数据库：SHOW DATABASE|SCHEMAS;
 
 - 查看上一步操作的警告信息 SHOW WARNINGS;
 
