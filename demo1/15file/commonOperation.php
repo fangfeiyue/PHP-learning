@@ -200,8 +200,15 @@ function readFileContent(string $fileName){
 // echo readFileContent('newFile.txt');
 
 
-function readFileContentToArray(string $fleName, bool $skipEmptyLines=false){
-    if (is_file($fileName)||is_readable($fileName)){
+/**
+ * 读取文件中的内容到数组中
+ *
+ * @param string $fleName 文件名
+ * @param boolean $skipEmptyLines 是否跳过空行
+ * @return array || false
+ */
+function readFileContentToArray(string $fileName, bool $skipEmptyLines=false){
+    if (is_file($fileName) || is_readable($fileName)){
         if ($skipEmptyLines){
             return file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         }else{
@@ -211,3 +218,5 @@ function readFileContentToArray(string $fleName, bool $skipEmptyLines=false){
 
     return false;
 }
+
+// var_dump(readFileContentToArray('newFile.txt'));
