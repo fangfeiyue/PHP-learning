@@ -219,4 +219,43 @@ function readFileContentToArray(string $fileName, bool $skipEmptyLines=false){
     return false;
 }
 
-// var_dump(readFileContentToArray('newFile.txt'));
+// var_dump(readFileContentToArray('newFile.txt', true));
+
+
+
+/**
+ * 向文件中写内容
+ *
+ * @param string $fileName 文件名
+ * @param [type] $data 要写入的数据
+ * @return bool true || false
+ */
+function wirteFile(string $fileName, $data){
+    $dirname = dirname($fileName);
+    // 检测目标录制是否存在
+    if (!file_exists($dirname)){
+        mkdir($dirname, 0777, true);
+    }
+
+    // 判断内容时否是数组或对象
+    if (is_array($data)||is_object($data)){
+        $data = serialize($data);
+    }
+
+    // 向文件中写内容
+    if (file_put_contents($fileName, $data)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+var_dump(wirteFile('newFile.txt', '无奈呀无奈'));
+
+
+
+
+
+
+
+
