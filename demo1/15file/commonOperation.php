@@ -250,8 +250,47 @@ function wirteFile(string $fileName, $data){
     }
 }
 
-var_dump(wirteFile('newFile.txt', '无奈呀无奈'));
+// var_dump(wirteFile('newFile.txt', '无奈呀无奈'));
+// var_dump(wirteFile('feiyue.txt', '无奈呀无奈'));
 
+
+
+
+
+function wirteFileCombine(string $fileName, $data, $clearFlag=false){
+    $dirname = dirname($fileName);
+    // 检测目标录制是否存在 
+    if (!file_exists($dirname)){
+        mkdir($dirname, 0777, true);
+    }
+
+    // 检测文件是否存在并且可读
+    if (is_file($fileName) && is_readable($fileName)){
+        // 读取文件内容，和新写入的内容拼装到一起
+        if (filesize($fileName) > 0){
+            $srcData = file_get_contents($fileName);
+
+        }         
+    }
+
+    if (!$clearFlag){
+        // 判断内容时否是数组或对象
+        if (is_array($data)||is_object($data)){
+            $data = serialize($data);
+        } 
+
+        $data = $srcData . $data; 
+    }
+
+    // 向文件中写内容
+    if (file_put_contents($fileName, $data)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+// var_dump(wirteFileCombine('nong', '222', false));
 
 
 
