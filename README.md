@@ -1734,6 +1734,17 @@ print_r(array_rand(array_flip($arr), 3));
 
 1.react中select不能用selected指定默认选中的值，需要用value指定
 
+2018年03月30日10:37:07
+
+### MySQL
+
+1. php操作mysql的三种方式
+- mysql:非永久连接，性能比较低，php5.5以后被废弃
+- mysqli:永久连接，减轻服务器压力，只支持mysql，但是会造成内存的浪费
+- pdo:能实现mysqli的常用功能，支持大部分数据库 
+
+
+
 2017年08月03日 星期四
 
 1.如何使用PHP去操作MySql
