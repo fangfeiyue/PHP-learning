@@ -1781,9 +1781,9 @@ select now(）返回当前的时间
 
 5.数据库相关操作
 
-- 创建数据库：CREATE (DATABASES|SCHEMA) db_name;
+- 创建数据库：CREATE (DATABASE|SCHEMA) db_name;
 
-- 不存在再创建：CREATE DATABASE [IF_NOT_EXISTS] db_name;
+- 不存在再创建：CREATE DATABASE [IF NOT   EXISTS] db_name;
 
 - 产看当前服务器下全部的数据库：SHOW DATABASE|SCHEMAS;
 
@@ -1791,7 +1791,7 @@ select now(）返回当前的时间
 
 - 在创建数据库的同时指定编码方式：CREATE_DATABASE[IF_NOT_EXISTS] db_name[DEFAULT] CHARACTER SET [=]charset;
 
-- 查看指定数据库的详细信息：SHOW_CREATE DATABASE db_name;
+- 查看指定数据库的详细信息：SHOW CREATE DATABASE db_name;
 
 - 修改指定数据库的编码方式：ALTER DATABASE db_name DEFAULT CHARACTER SET ‘UTF-8’;
 
