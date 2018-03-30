@@ -1743,19 +1743,26 @@ print_r(array_rand(array_flip($arr), 3));
 - mysqli:永久连接，减轻服务器压力，只支持mysql，但是会造成内存的浪费
 - pdo:能实现mysqli的常用功能，支持大部分数据库 
 
+2.mysql方式链接数据库
+- 连接数据库 mysql_connect($server, $userName, $password);
+- 选择数据库 mysql_select_db($database_name);
+- 设置字符集 mysql_set_charset($charset);防止乱码
 
+3.Q:启动MAMP后，怎么在命令行操作mysql呢？
+
+A:在终端输入`/Applications/MAMP/Library/bin/mysql -uroot -p`,提示输入密码，输入密码完成后回车即可
 
 2017年08月03日 星期四
 
 1.如何使用PHP去操作MySql
 
 - 命令行方式连接数据库
-	1.命令行中输入mysql -uroot -p或者mysql -uroot -p+密码
+	1.命令行中输入mysql -uroot -p或者mysql -uroot -p密码(密码要紧跟-p后面)
 	2.输入密码
-	3.退出数据库：exit/quit,注意不要加分号
+	3.退出数据库：exit/quit/\q,/ctrl+c强制退出,注意不要加分号
 
 2.查看mysql版本  
-mysql -V
+mysql -V或者mysql -uroot -proot -V
 
 3.登录的同时打开指定的数据库：
 ```
@@ -1764,7 +1771,7 @@ mysql -uroot -p -D db_name(数据库的名称)
 
 4.一些简单的命令
 
-select database();产看打开的数据库  
+select database();查看打开的数据库  
 
 命令行结束符默认使用;或者\g来结束；  
 
