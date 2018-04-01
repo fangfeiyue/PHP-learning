@@ -1827,6 +1827,9 @@ select now(）返回当前的时间
     - 定点数
 - 字符串类型
 ![字符串类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/dingdianshu.png)
+    - CHAR效率高于VARCHAR,CHAR相当于拿空间换时间，VARCHAR拿时间换空间
+    - CHAR默认存储数据的时候，后面会用空格填充到指定长度；而在检索的时候会去掉后面空格；VARCHAR在保存的时候不进行填充，尾部的空格会留下
+    - TEXT列不能有默认值,检索的时候不存在大小写转换
 - 日期时间类型
 ![日期时间类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/date.png)
 
@@ -1838,7 +1841,7 @@ select now(）返回当前的时间
 
 11.删除指定的数据表：DROP TABLE [IF NOT EXISTS] TBL_NAME
 
-12.表字段的约束条件
+12.表字段完整性约束条件
 - UNSIGNED 无符号，没有负数，从0开始
 - ZEROFILL 零填充，当数据的显示长度不够的时候可以使用前补0的效果填充至指定长度,字段会自动添加UNSIGNED
 - NOT NULL 非空约束，也就是插入值的时候这个字段必须要给值,值不能为空
@@ -1847,6 +1850,14 @@ select now(）返回当前的时间
 - AUTO_INCREMENT 自动增长，只能用于数值列，而且配合索引使用,默认起始值从1开始，每次增长1
 - UNIQUE KEY 唯一性，一个表中可以有多个字段是唯一索引，同样的值不能重复，但是NULL值除外
 - FOREIGN KEY 外键约束
+
+13.
+
+
+
+
+
+
 
 
 ## 彩蛋

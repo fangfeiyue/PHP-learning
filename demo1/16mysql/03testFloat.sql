@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS test_float(
+    a FLOAT,
+    b DOUBLE,
+    c DECIMAL
+)ENGINE=INNODB CHARSET=UTF8;
+
+INSERT test_float(a, b, c) VALUES(1.234, 1.3344, 4.5564);
