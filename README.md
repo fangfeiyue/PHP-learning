@@ -1828,6 +1828,7 @@ select now(）返回当前的时间
 - 字符串类型
 ![字符串类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/dingdianshu.png)
 - 日期时间类型
+![日期时间类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/date.png)
 
 8.查看数据库下已有数据表：SHOW TABLES;
 
