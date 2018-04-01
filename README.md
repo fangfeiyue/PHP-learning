@@ -1752,6 +1752,12 @@ print_r(array_rand(array_flip($arr), 3));
 
 A:在终端输入`/Applications/MAMP/Library/bin/mysql -uroot -p`,提示输入密码，输入密码完成后回车即可
 
+4. Q：启动WAMP后怎么在命令行操作mysql呢？
+
+A：
+- cd \software\wamp\wamp64\bin\mysql\mysql5.7.14\bin
+- mysql -uroot -p
+- 输入密码即可
 2017年08月03日 星期四
 
 1.如何使用PHP去操作MySql
