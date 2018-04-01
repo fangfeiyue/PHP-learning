@@ -1832,7 +1832,10 @@ select now(）返回当前的时间
 
 8.查看数据库下已有数据表：SHOW TABLES;
 
-9.查看指定数据表的详细信息：SHOW_CREATE TABLE btl_name;
+9.查看指定数据表的详细信息：SHOW CREATE TABLE btl_name;
+
+10.不进入指定的数据库，查看数据库中的表： SHOW TABLES FROM db_name
+
 
 
 ## 彩蛋
