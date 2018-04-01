@@ -1826,10 +1826,10 @@ select now(）返回当前的时间
     ![整数类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/float.png)
     - 定点数
 - 字符串类型
-![字符串类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/dingdianshu.png)
     - CHAR效率高于VARCHAR,CHAR相当于拿空间换时间，VARCHAR拿时间换空间
     - CHAR默认存储数据的时候，后面会用空格填充到指定长度；而在检索的时候会去掉后面空格；VARCHAR在保存的时候不进行填充，尾部的空格会留下
     - TEXT列不能有默认值,检索的时候不存在大小写转换
+![字符串类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/dingdianshu.png)
 - 日期时间类型
 ![日期时间类型](https://github.com/fangfeiyue/PHP-learning/blob/master/img/date.png)
 
