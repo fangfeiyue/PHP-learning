@@ -1834,8 +1834,19 @@ select now(）返回当前的时间
 
 9.查看指定数据表的详细信息：SHOW CREATE TABLE btl_name;
 
-10.不进入指定的数据库，查看数据库中的表： SHOW TABLES FROM db_name
+10.不进入指定的数据库，查看数据库中的表： SHOW TABLES FROM/IN db_name
 
+11.删除指定的数据表：DROP TABLE [IF NOT EXISTS] TBL_NAME
+
+12.表字段的约束条件
+- UNSIGNED 无符号，没有负数，从0开始
+- ZEROFILL 零填充，当数据的显示长度不够的时候可以使用前补0的效果填充至指定长度,字段会自动添加UNSIGNED
+- NOT NULL 非空约束，也就是插入值的时候这个字段必须要给值,值不能为空
+- DEFAULT 默认值，如果插入记录的时候没有给字段赋值，则使用默认值
+- PRIMARY KEY 主键，标识记录的唯一性，值不能重复，一个表只能有一个主键，自动禁止为空
+- AUTO_INCREMENT 自动增长，只能用于数值列，而且配合索引使用,默认起始值从1开始，每次增长1
+- UNIQUE KEY 唯一性，一个表中可以有多个字段是唯一索引，同样的值不能重复，但是NULL值除外
+- FOREIGN KEY 外键约束
 
 
 ## 彩蛋
