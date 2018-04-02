@@ -16,3 +16,13 @@ ALTER TABLE test_addanddel add addr VARCHAR(50) NOT NULL DEFAULT '北京' FIRST;
 
 
 -- 测试修改字段类型、属性、名称
+
+
+-- 测试删除和添加主键
+CREATE TABLE test_primary(
+    id INT UNSIGNED,
+    userName VARCHAR(20) NOT NULL
+);
+
+-- 添加主键
+ALTER TABLE test_primary DROP PRIMARY KEY;
