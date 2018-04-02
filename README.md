@@ -1889,6 +1889,19 @@ ALTER  TABLE old_tbl RENAME TO/AS new_tbl;
 ALTER TABLE tbl_name ADD 字段名称 字段属性 [完整性约束条件] [FIRST|AFTER 字段名称]
 ```
 
+5. 删除一个字段
+```
+ALTER TABLE tbl_name DROP 字段名称
+```
+
+6. 修改字段类型、字段属性 
+`ALTER TABLE tbl_name
+MODIFY 字段名称 字段类型 [字段属性] [FIRST | AFTER 字段名称] `
+
+7. 修改字段名称、字段类型、字段属性
+`ALTER TABLE tbl_name
+CHANGE 原字段名称 新字段名称 字段类型 字段属性 [FIRST | AFTER 字段名称]`
+
 
 
 
