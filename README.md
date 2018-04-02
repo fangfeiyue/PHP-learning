@@ -1884,7 +1884,11 @@ RENAME TABLE old_tbl TO new_tbl;
 ALTER  TABLE old_tbl RENAME TO/AS new_tbl;
 ```
 
-4.
+4. 添加一个字段
+```
+ALTER TABLE tbl_name ADD 字段名称 字段属性 [完整性约束条件] [FIRST|AFTER 字段名称]
+```
+
 
 
 
