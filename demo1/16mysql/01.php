@@ -52,3 +52,5 @@ $link = mysql_connect(
    $user, 
    $password
 );
+
+mysql_close($link);
