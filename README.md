@@ -1875,7 +1875,16 @@ CREATE TABLE test_auto_increment(
 );
 ```
 
-3. 
+3. 修改该表的名称
+```
+// 第一种方法
+RENAME TABLE old_tbl TO new_tbl;
+
+// 第二种方法
+ALTER  TABLE old_tbl RENAME TO/AS new_tbl;
+```
+
+4.
 
 
 
