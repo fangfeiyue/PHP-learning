@@ -199,11 +199,8 @@ error_reporting(E_ALL&~E_NOTICE);
         - 其他类型转换成数值、bool、字符串,true转换成1，false转换成空字符串
             - $var = '0.0';$var = new StdClass();转换为true
             - $var = array();空数组转化为假的
-    - 强制转换(显示转换)
-        - 
 
 2.强制转换（显示转换）
-
 
 ### 2017年6月7日 星期三
  
