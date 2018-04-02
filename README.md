@@ -1851,7 +1851,9 @@ select now(）返回当前的时间
 - UNIQUE KEY 唯一性，一个表中可以有多个字段是唯一索引，同样的值不能重复，但是NULL值除外
 - FOREIGN KEY 外键约束
 
-13.主键的两种使用形式
+2018年04月02日13:53:29
+
+1.主键的两种使用形式
 ```
 CREATE TABLE test_primary_key(
     id INT unsigned PRIMARY KEY,
@@ -1864,6 +1866,8 @@ CREATE TABLE test_primary_key2(
     PRIMARY KEY(id)
 );
 ```
+
+2.
 
 
 
@@ -1878,7 +1882,9 @@ vscode插件
 
 - php-docblocker 给函数添加注释，使用方法:/**回车即可
 
--
+- 开启vscode中大小写转换的快捷键
+    - 工具栏 ---> code ---> 首选项 ---> 键盘快捷方式
+    - 在搜索框分别输入大写、小写，然后双击转换为大写、转换为小写，分别按键盘上自己想设置的按键进行配置
 
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
