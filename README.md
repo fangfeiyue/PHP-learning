@@ -1867,7 +1867,15 @@ CREATE TABLE test_primary_key2(
 );
 ```
 
-2.
+2. 主键自动增减
+```
+CREATE TABLE test_auto_increment(
+    id INT UNSIGNED KEY AUTO_INCREMENT,
+    userName VARCHAR(10)
+);
+```
+
+3. 
 
 
 
