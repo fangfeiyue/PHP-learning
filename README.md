@@ -1851,7 +1851,19 @@ select now(）返回当前的时间
 - UNIQUE KEY 唯一性，一个表中可以有多个字段是唯一索引，同样的值不能重复，但是NULL值除外
 - FOREIGN KEY 外键约束
 
-13.
+13.主键的两种使用形式
+```
+CREATE TABLE test_primary_key(
+    id INT unsigned PRIMARY KEY,
+    userName VARCHAR(10)
+);
+
+CREATE TABLE test_primary_key2(
+    id INT unsigned,
+    userName VARCHAR(10),
+    PRIMARY KEY(id)
+);
+```
 
 
 

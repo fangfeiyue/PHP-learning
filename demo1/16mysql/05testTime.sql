@@ -30,3 +30,4 @@ CREATE TABLE test_timestamp(
 );
 INSERT test_timestamp() VALUES('1978-10-23 12:12:12');
 
+
