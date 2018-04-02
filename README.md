@@ -1892,28 +1892,40 @@ ALTER TABLE tbl_name DROP 字段名称
 ```
 
 6. 修改字段类型、字段属性 
-```ALTER TABLE tbl_name
-MODIFY 字段名称 字段类型 [字段属性] [FIRST | AFTER 字段名称] ```
+```
+ALTER TABLE tbl_name
+MODIFY 字段名称 字段类型 [字段属性] [FIRST | AFTER 字段名称] 
+```
 
 7. 修改字段名称、字段类型、字段属性
-```ALTER TABLE tbl_name
-CHANGE 原字段名称 新字段名称 字段类型 字段属性 [FIRST | AFTER 字段名称]```
+```
+ALTER TABLE tbl_name
+CHANGE 原字段名称 新字段名称 字段类型 字段属性 [FIRST | AFTER 字段名称]
+```
 
 8. 添加主键
-```ALTER TABLE tbl_name
-ADD PRIMARY KEY(字段名称)```
+```
+ALTER TABLE tbl_name
+ADD PRIMARY KEY(字段名称)
+```
 
 9. 删除主键
-```ALTER TABLE tbl_name
-DROP PRIMARY KEY;```
+```
+ALTER TABLE tbl_name
+DROP PRIMARY KEY;
+```
 
 10. 添加唯一
-```ALTER TABLE tbl_name
-ADD UNIQUE KEY|INDEX [index_name] (字段名称)```
+```
+ALTER TABLE tbl_name
+ADD UNIQUE KEY|INDEX [index_name] (字段名称)
+```
 
 11. 删除唯一
-```ALTER TABLE tbl_name 
-DROP index_name;```
+```
+ALTER TABLE tbl_name 
+DROP index_name;
+```
 
 
 
