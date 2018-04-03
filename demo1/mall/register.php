@@ -22,9 +22,16 @@ if (!empty($_POST['username']) || !empty($_POST['password'])){
     include_once './lib/func.php';
 
     // 数据库连接
-    $link = mysqlInit('localhost', 3306, 'root', 'root', 'test1');
+    $connect = mysqlInit('localhost', 'root', 'root', 'my_mall');
 
-    echo '数据库连接成功';
+    $userName = '221';
+
+    // 判断用户名是否存在数据表中
+    $sql = "SELECT COUNT(id) FROM im_user WHERE userName=${userName}";
+    $result = mysqli_query($connect, $sql);
+    $data = mysqli_fetch_all($result);
+    echo '居然走到了这';
+    if ();
 }
 ?>
 <!DOCTYPE html>

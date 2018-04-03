@@ -15,3 +15,6 @@ INSERT test_set(a) VALUES('C,D,E');
 INSERT test_set(a) VALUES('C,F,A');
 
 
+
+
+INSERT INTO im_user VALUES(1, '22', '123456789', NOW());

@@ -1993,6 +1993,9 @@ vscode插件
 - 开启vscode中大小写转换的快捷键
     - 工具栏 ---> code ---> 首选项 ---> 键盘快捷方式
     - 在搜索框分别输入大写、小写，然后双击转换为大写、转换为小写，分别按键盘上自己想设置的按键进行配置
+- mac os 下的 mamp 如何开启php的错误报告？
+    - 打开 /Applications/MAMP/bin/php/{your PHP version}/conf/php.ini 文件
+    - 找到 display_errors = Off （大概在 277 行的位置）把他改成 display_errors = On
 
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^

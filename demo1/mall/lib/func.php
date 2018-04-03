@@ -1,33 +1,13 @@
 <?php
-/**
- * 数据库连接初始化
- *
- * @param [type] $host
- * @param [type] $port
- * @param [type] $user
- * @param [type] $password
- * @param [type] $db
- * @return void
- */
-function mysqlInit($host, $port, $user, $password, $db){
-    $link = mysqli_init();
+date_default_timezone_set('prc');
+header('content-type:text/html;charset=utf-8');
 
-    if (!$link){
-        die('mysqli_init failed');
-    }
+function mysqlInit($host, $userName, $password, $dbName){
+    // 连接数据库
+    $connect = mysqli_connect($host, $userName, $password, $dbName) or die('数据库连接失败');
 
-    $success = mysqli_real_connect(
-        $link, 
-        $host, 
-        $user, 
-        $password, 
-        $db,
-        $port
-    );
+    // 设置字符集
+    mysqli_query('set names utf8');
 
-    if (!$success){
-        die('connect error'.mysqli_connect_error());
-    }
-
-    return $success;
+    return $connect;
 }
