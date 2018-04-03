@@ -1945,10 +1945,18 @@ $result = mysql_query("DELETE FROM users WHERE id=3");
 $result = mysql_query("DROP TABLE test");
 ```
 
-4. `mysql_query`对select操作，执行成功会返回一个resoure，如果查询失败会返回false,返回的结果资源应该传递给`mysql_fetch_array`和其他函数来处理结果表，取出返回的数据。`mysql_fetch_array`第二个参数可选择MYSQL_ASSOC，MYSQL_NUM 和 MYSQL_BOTH
+4. `mysql_query`对select操作，执行成功会返回一个resoure，如果查询失败会返回false,返回的结果资源应该传递给`mysql_fetch_array`和其他函数来处理结果表，取出返回的数据。`mysql_fetch_array`第二个参数可选择MYSQL_ASSOC，MYSQL_NUM 和 MYSQL_BOTH.
+
+`注意：mysql_fetch_array一次只能取出一条数据`
 ```
 
 ```
+
+5. mysql_fetch_row — 从结果集中取得一行作为枚举数组
+
+6. mysql_fetch_assoc — 从结果集中取得一行作为关联数组
+
+7. 
 
 
 

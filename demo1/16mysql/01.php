@@ -47,4 +47,12 @@ $result = mysql_query("DROP TABLE test");
 
 
 // mysql方式获取结果集
-mysql_fetch_array
+$result = mysql_query("SELECT * FROM USERS");
+// mysql_fetch_array($result, MYSQL_NUM);
+
+while($line = mysql_fetch_array($result, MYSQL_NUM)){
+    $data[] = $line;
+}
+
+
+
