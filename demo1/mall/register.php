@@ -1,6 +1,6 @@
 <?php
 // 表单进行了提交处理
-if (!empty($_POST['username'])||!empty($_POST['password'])){
+if (!empty($_POST['username']) || !empty($_POST['password'])){
     $userName = trim($_POST['username']);
     $password = trim($_POST['password']);
     $repassword = trim($_POST['repassword']);
@@ -22,24 +22,9 @@ if (!empty($_POST['username'])||!empty($_POST['password'])){
     include_once './lib/func.php';
 
     // 数据库连接
-    // $link = mysqlInit('127.0.0.1', 'root', 'root');
-    $link = mysqlInit('localhost', '3306', 'root', 'root', 'mall');
+    $link = mysqlInit('localhost', 3306, 'root', 'root', 'test1');
 
-    echo '数据库';
-    echo 'dbname'.$link.'testname';
-    echo '执行了我';
-
-    // if (!$link){
-    //     echo mysql_errno();
-    //     exit;
-    // }
-
-    // // // 判断用户是否在数据表中存在
-    // $sql    = "SELECT COUNT(id) FROM im_user WHERE userName = '${userName}'";
-    // $obj    = mysql_query($sql);
-    // $result = mysql_fetch_assoc($obj);
-
-    // var_dump($result);
+    echo '数据库连接成功';
 }
 ?>
 <!DOCTYPE html>

@@ -2,55 +2,25 @@
 date_default_timezone_set('prc');
 header('content-type:text/html;charset=utf-8');
 
-// $user = 'root';
-// $password = 'root';
-// $db = 'inventory';
-// $host = 'localhost';
-// $port = 3306;
 
-// // 连接数据库
-// $link = mysql_connect($host, $user, $password);
-
-// if (!$link){
-//     die('Could not connect'.mysql_error());
-// }
-
-// // 关闭数据库连接
-// mysql_close($link) ;
-
-
-
-
-// $user = 'root';
-// $password = 'root';
-// $db = 'inventory';
-// $host = 'localhost';
-// $port = 3306;
-
-// $link = mysql_connect(
-//    "$host:$port", 
-//    $user, 
-//    $password
-// );
-// // $db_selected = mysql_select_db(
-// //    $db, 
-// //    $link
-// // );
-// mysql_close($link);
-
-
-
-
+// 测试数据库的连接
 
 $user = 'root';
 $password = 'root';
-$db = 'inventory';
-$socket = 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock';
+$db = 'test1';
+$host = 'localhost';
+$port = 3306;
 
-$link = mysql_connect(
-   $socket, 
+$link = mysqli_init();
+$success = mysqli_real_connect(
+   $link, 
+   $host, 
    $user, 
-   $password
+   $password, 
+   $db,
+   $port
 );
 
-mysql_close($link);
+
+
+
