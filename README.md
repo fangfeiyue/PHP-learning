@@ -1956,7 +1956,31 @@ $result = mysql_query("DROP TABLE test");
 
 6. mysql_fetch_assoc — 从结果集中取得一行作为关联数组
 
-7. 
+7. mysqli面向过程方式操作数据库
+```
+function mysqlInit($host, $userName, $password, $dbName){
+    // 面向过程方式连接数据库
+    $connect = mysqli_connect($host, $userName, $password, $dbName) or die('数据库连接失败');
+
+    // 设置字符集
+    mysqli_query($connect, 'set names utf8');
+    
+    // 执行sql语句
+    
+    // 插入数据
+    // $result = mysqli_query($connect, "insert into users values(null, 'fang', '10000000')");
+    // $result = mysqli_query($connect, "insert into users values(null, 'dou', '10000000')");
+
+    // 删除数据
+    $result = mysqli_query($connect, 'UPDATE users SET money=2000000 WHERE id=1');
+
+    // 查找数据
+    $result = mysqli_query($connect, 'SELECT * FROM users');
+
+    // 获取结果集 
+    return mysqli_fetch_all($result, MYSQL_ASSOC);
+}
+```
 
 
 
