@@ -1735,26 +1735,17 @@ print_r(array_rand(array_flip($arr), 3));
 
 ### MySQL
 
-1. php操作mysql的三种方式
-- mysql:非永久连接，性能比较低，php5.5以后被废弃
-- mysqli:永久连接，减轻服务器压力，只支持mysql，但是会造成内存的浪费
-- pdo:能实现mysqli的常用功能，支持大部分数据库 
-
-2.mysql方式链接数据库
-- 连接数据库 mysql_connect($server, $userName, $password);
-- 选择数据库 mysql_select_db($database_name);
-- 设置字符集 mysql_set_charset($charset);防止乱码
-
-3.Q:启动MAMP后，怎么在命令行操作mysql呢？
+1.Q:启动MAMP后，怎么在命令行操作mysql呢？
 
 A:在终端输入`/Applications/MAMP/Library/bin/mysql -uroot -p`,提示输入密码，输入密码完成后回车即可
 
-4. Q：启动WAMP后怎么在命令行操作mysql呢？
+2. Q：启动WAMP后怎么在命令行操作mysql呢？
 
 A：
 - cd \software\wamp\wamp64\bin\mysql\mysql5.7.14\bin
 - mysql -uroot -p
 - 输入密码即可
+
 2017年08月03日 星期四
 
 1.如何使用PHP去操作MySql
@@ -1927,7 +1918,32 @@ ALTER TABLE tbl_name
 DROP index_name;
 ```
 
+2018年04月03日10:38:29
 
+1. php操作mysql的三种方式
+- mysql:非永久连接，性能比较低，php5.5以后被废弃
+- mysqli:永久连接，减轻服务器压力，只支持mysql，但是会造成内存的浪费
+- pdo:能实现mysqli的常用功能，支持大部分数据库 
+
+2.mysql方式链接数据库
+- 连接数据库 mysql_connect($server, $userName, $password);
+- 选择数据库 mysql_select_db($database_name);
+- 设置字符集 mysql_set_charset($charset);防止乱码
+
+3. mysql_query 发送一条 MySQL 查询,对insert、update、delete、drop等操作成功后返回true，失败返回fals
+```
+// 添加数据
+$result = mysql_query("INSERT INTO USERS VALUES(NULL, 'fang', '1000000000')");
+
+// 修改数据
+$result = mysql_query("UPDATE USERS SET MONEY=20000000000 WHERE id=3");
+
+// 删除单条数据
+$result = mysql_query("DELETE FROM users WHERE id=3");
+
+// 删除数据表
+$result = mysql_query("DROP TABLE test");
+```
 
 
 
