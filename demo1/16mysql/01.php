@@ -43,3 +43,8 @@ $result = mysql_query("DELETE FROM users WHERE id=3");
 // 删除数据表
 $result = mysql_query("DROP TABLE test");
 
+
+
+
+// mysql方式获取结果集
+mysql_fetch_array

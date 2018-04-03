@@ -1930,7 +1930,7 @@ DROP index_name;
 - 选择数据库 mysql_select_db($database_name);
 - 设置字符集 mysql_set_charset($charset);防止乱码
 
-3. mysql_query 发送一条 MySQL 查询,对insert、update、delete、drop等操作成功后返回true，失败返回fals
+3. mysql_query 发送一条 MySQL 查询,对insert、update、delete、drop等操作成功后返回true，失败返回false
 ```
 // 添加数据
 $result = mysql_query("INSERT INTO USERS VALUES(NULL, 'fang', '1000000000')");
@@ -1945,7 +1945,10 @@ $result = mysql_query("DELETE FROM users WHERE id=3");
 $result = mysql_query("DROP TABLE test");
 ```
 
+4. `mysql_query`对select操作，执行成功会返回一个resoure，如果查询失败会返回false,返回的结果资源应该传递给`mysql_fetch_array`和其他函数来处理结果表，取出返回的数据。`mysql_fetch_array`第二个参数可选择MYSQL_ASSOC，MYSQL_NUM 和 MYSQL_BOTH
+```
 
+```
 
 
 
