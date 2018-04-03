@@ -11,3 +11,19 @@ function mysqlInit($host, $userName, $password, $dbName){
 
     return $connect;
 }
+
+
+/**
+ * 密码加密处理
+ *
+ * @param string $password 要处理的密码
+ * @return string 处理过后的密码
+ */
+function createPassword($password){
+    
+    if (!$password){
+        return false;
+    }     
+
+    return md5(md5($password).'wanlisun?123');
+}

@@ -1,6 +1,7 @@
 <?php
 // 表单进行了提交处理
 if (!empty($_POST['username']) || !empty($_POST['password'])){
+    
     $userName = trim($_POST['username']);
     $password = trim($_POST['password']);
     $repassword = trim($_POST['repassword']);
@@ -24,14 +25,29 @@ if (!empty($_POST['username']) || !empty($_POST['password'])){
     // 数据库连接
     $connect = mysqlInit('localhost', 'root', 'root', 'my_mall');
 
-    $userName = '221';
+    $userName = '22';
 
     // 判断用户名是否存在数据表中
     $sql = "SELECT COUNT(id) FROM im_user WHERE userName=${userName}";
     $result = mysqli_query($connect, $sql);
     $data = mysqli_fetch_all($result);
-    echo '居然走到了这';
-    if ();
+    
+    // 用户已经存在数据库中
+    if (count($data)){
+        echo '用户名已经存在，请重新输入';
+    }
+
+    // 密码加密处理
+    $password = createPassword($password);
+    
+    // 释放变量
+    unset($obj, $result, $sql);
+
+    // 插入数据
+    $sql = "INSERT im_user(userName, password, create_time) VALUES('${userName}', '${password}', '{$_SERVER['REQUEST_TIME']}')";
+
+    $obj = mysqli_query($connect, $sql);
+
 }
 ?>
 <!DOCTYPE html>
