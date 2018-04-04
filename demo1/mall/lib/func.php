@@ -7,7 +7,7 @@ function mysqlInit($host, $userName, $password, $dbName){
     $connect = mysqli_connect($host, $userName, $password, $dbName) or die('数据库连接失败');
 
     // 设置字符集
-    mysqli_query('set names utf8');
+    @mysqli_query('set names utf8');
 
     return $connect;
 }
