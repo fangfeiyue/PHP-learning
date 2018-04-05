@@ -28,13 +28,13 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
 
     // 数据库连接
     $connect = mysqlInit('localhost', 'root', 'root', 'my_mall');
-
     // 判断用户名是否存在数据表中
-    $sql = "SELECT COUNT(id) FROM im_user WHERE userName=${userName}";
+    $sql = "SELECT COUNT(`id`) as total FROM `im_user` WHERE `userName`='${userName}'";
     $result = mysqli_query($connect, $sql);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $total = $data[0]['total'];
 
-    if(isset($data[0]['COUNT(id)'])&&$data[0]['COUNT(id)']>0){
+    if(isset($total) && $total > 0){
         echo '用户名已经存在，请重新输入';
         exit;
     }
@@ -54,6 +54,10 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
     if ($obj){
         $userId = mysqli_insert_id($connect);
         echo sprintf('恭喜您注册成功，用户名是%s，用户id是%s',$userName, $userId);
+        exit;
+    }else{
+        echo mysqli_error($connect);
+        exit;
     }
 
 }
@@ -90,7 +94,7 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
                     <div class="user-title">
                         <p>用户注册</p>
                     </div>
-                    <form class="login-table" name="register" id="register-form" action="register.php" method="post">
+                    <form class="login-table" name="register" id="register-form" action="./register.php" method="post">
                         <div class="login-left">
                             <label class="username">用户名</label>
                             <input type="text" class="yhmiput" name="username" placeholder="Username" id="username">
