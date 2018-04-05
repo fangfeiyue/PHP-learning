@@ -1989,6 +1989,19 @@ function mysqlInit($host, $userName, $password, $dbName){
 $userId = mysqli_insert_id($connect);
 ```
 
+2. js读取php变量
+```
+var url = "<?php echo $url ?>";
+```
+
+3. html中运用php的条件判断
+```
+<?php if ($type == 1): ?>
+    <span class="smile_face">:)</span>           
+<?php else: ?>
+    <span class="smile_face">:(</span>
+<?php endif; ?>
+```
 
 
 ## 彩蛋

@@ -27,3 +27,11 @@ function createPassword($password){
 
     return md5(md5($password).'wanlisun?123');
 }
+
+function msg($type, $msg = null, $url = null){
+    $toUrl  = "location:msg.php?type=${type}";
+    $toUrl .= $msg ? "&msg=${msg}" : "";
+    $toUrl .= $url ? "&url=${url}" : "";
+    header($toUrl);
+    exit;
+}
