@@ -1982,6 +1982,13 @@ function mysqlInit($host, $userName, $password, $dbName){
 }
 ```
 
+2018年04月05日17:53:53
+
+1. mysqli_insert_id() 函数返回最后一个查询中自动生成的 ID（通过 AUTO_INCREMENT 生成）
+```
+$userId = mysqli_insert_id($connect);
+```
+
 
 
 ## 彩蛋
