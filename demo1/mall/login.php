@@ -1,11 +1,19 @@
 <?php
 header('content-type:text/html;charset=utf-8');
-// 表单进行了提交处理
-if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['repassword'])){
 
-    $userName = trim($_POST['username']);
-    $password = trim($_POST['password']);
-    $repassword = trim($_POST['repassword']);
+// session_start — 启动新会话或者重用现有会话
+session_start();
+
+$userName = trim($_POST['username']);
+$password = trim($_POST['password']);
+
+if ($_SESSION['user'] && !empty($_SESSION['user'])){
+    header('Location:index.php');
+    exit;
+}
+
+if (!empty($userName) || !empty($password)){
+    include_once './lib/func.php';
 
     if (!$userName){
         echo '用户名不能为空';
@@ -15,59 +23,38 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
         echo '密码不能为空';
         exit;
     }
-    if (!$repassword){
-        echo '确认密码不能为空';
-        exit;
-    }
-    if ($repassword !== $password){
-        echo '两次输入密码不一致，请重新输入';
-        exit;
-    }
-    
-    // include_once 语句在脚本执行期间包含并运行指定文件。此行为和 include 语句类似，唯一区别是如果该文件中已经被包含过，则不会再次包含。如同此语句名字暗示的那样，只会包含一次。
-    include_once './lib/func.php';
 
     // 数据库连接
     $connect = mysqlInit('localhost', 'root', 'root', 'my_mall');
-    // 判断用户名是否存在数据表中
-    $sql = "SELECT COUNT(`id`) as total FROM `im_user` WHERE `userName`='${userName}'";
-    $result = mysqli_query($connect, $sql);
-    $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $total = $data[0]['total'];
 
-    if(isset($total) && $total > 0){
-        echo '用户名已经存在，请重新输入';
-        exit;
-    }
-
-    // 密码加密处理
-    $password = createPassword($password);
-    
-    // 释放变量
-    unset($obj, $result, $sql);
-
-    // 插入数据
-    $sql = "INSERT im_user(userName, password, create_time) VALUES('${userName}', '${password}', '{$_SERVER['REQUEST_TIME']}')";
+    // 根据用户名查询用户
+    $sql = "SELECT * FROM `im_user` WHERE `userName`='${userName}' LIMIT 1";
 
     $obj = mysqli_query($connect, $sql);
+    $result = mysqli_fetch_all($obj, MYSQLI_ASSOC);
 
-    // 判断是否成功插入数据
-    if ($obj){
-        $userId = mysqli_insert_id($connect);
-        echo sprintf('恭喜您注册成功，用户名是%s，用户id是%s',$userName, $userId);
+    if (is_array($result) && !empty($result)){
+        if (createPassword($password) === $result[0]['password']){
+            $_SESSION['user'] = $result[0];
+            header('Location:index.php');
+            exit;
+        }else{
+            echo '密码输入错误，请重新输入';
+            exit;
+        }
         exit;
     }else{
-        echo mysqli_error($connect);
+        echo '用户名不存在，请重新输入';
         exit;
     }
-
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>M-GALLARY|用户注册</title>
+    <title>M-GALLARY|用户登录</title>
     <link type="text/css" rel="stylesheet" href="./static/css/common.css">
     <link type="text/css" rel="stylesheet" href="./static/css/add.css">
     <link rel="stylesheet" type="text/css" href="./static/css/login.css">
@@ -93,9 +80,9 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
             <div class="user-login">
                 <div class="user-box">
                     <div class="user-title">
-                        <p>用户注册</p>
+                        <p>用户登录</p>
                     </div>
-                    <form class="login-table" name="register" id="register-form" action="./register.php" method="post">
+                    <form class="login-table" name="login" id="login-form" action="login.php" method="post">
                         <div class="login-left">
                             <label class="username">用户名</label>
                             <input type="text" class="yhmiput" name="username" placeholder="Username" id="username">
@@ -104,13 +91,8 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
                             <label class="passwd">密码</label>
                             <input type="password" class="yhmiput" name="password" placeholder="Password" id="password">
                         </div>
-                        <div class="login-right">
-                            <label class="passwd">确认</label>
-                            <input type="password" class="yhmiput" name="repassword" placeholder="Repassword"
-                                   id="repassword">
-                        </div>
                         <div class="login-btn">
-                            <button type="submit">注册</button>
+                            <button type="submit">登录</button>
                         </div>
                     </form>
 
@@ -128,10 +110,9 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
 <script src="./static/js/layer/layer.js"></script>
 <script>
     $(function () {
-        $('#register-form').submit(function () {
+        $('#login-form').submit(function () {
             var username = $('#username').val(),
-                password = $('#password').val(),
-                repassword = $('#repassword').val();
+                password = $('#password').val();
             if (username == '' || username.length <= 0) {
                 layer.tips('用户名不能为空', '#username', {time: 2000, tips: 2});
                 $('#username').focus();
@@ -144,15 +125,12 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
                 return false;
             }
 
-            if (repassword == '' || repassword.length <= 0 || (password != repassword)) {
-                layer.tips('两次密码输入不一致', '#repassword', {time: 2000, tips: 2});
-                $('#repassword').focus();
-                return false;
-            }
 
             return true;
         })
 
     })
+</script>
+
 </script>
 </html>
