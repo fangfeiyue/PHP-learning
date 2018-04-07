@@ -2023,8 +2023,14 @@ accept 属性只能与 `<input type="file">` 配合使用。它规定能够通�
 本例中的输入字段可以接受png、gif、jpeg图像
 ```
 <input type="file" accept="image/png,image/gif,image/jpeg" id="file" name="file">
-```
 
+3. php上传文件要打开`Php.int`修改`upload_max`的数值，这个值是限制最大上传文件大小的，根据自己实际需要来定就好。还需要修改`pox_max_size`的值，这个值限制form表单提交时所有input框中内容的大小。
+
+4. is_uploaded_file — 判断文件是否是通过 HTTP POST 上传的
+
+5. move_uploaded_file — 将上传的文件移动到新位置
+
+6. 
 
 ## 彩蛋
 

@@ -1,6 +1,67 @@
 <?php 
     header('content-type:text/html;charset=utf-8');
+    include_once './lib/func.php';
+
+    session_start();
+
+    if (!isset($_SESSION['user']) || empty($_SESSION['user'])){
+        msg(2, '请登录', 'login.php');
+    }
     
+    $user = $_SESSION['user'];
+
+    if (!empty($_POST['name'])){
+        $file = $_FILES['file'];
+        $now = $_SERVER['REQUEST_TIME'];
+
+        // 检查上传文件是否合法
+        if (!is_uploaded_file($file['tmp_name'])){
+            msg(2, "请上传符合规范的图像");
+            exit;
+        }
+
+        $type = $file['type'];
+        
+        // 图像类型验证
+        if (!in_array($type, ["image/gif", "image/png", "image/jpeg"])){
+            msg(2, "请上传png、gif、jpeg格式的图片");     
+            exit;
+        }
+
+        // 上传目录
+        $uploadPath = './static/file';
+        // 上传目录访问url
+        $uploadUrl = '/static/file';
+ 
+        // 上传文件夹
+        $fileDir =  date('Y/md/', $now); 
+        
+        // 检查上传目录是否存在
+        if (!is_dir($uploadPath.$fileDir)){
+            mkdir($uploadPath.$fileDir, 0755, true); // 递归创建子目录
+        }
+
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+        // 上传图像名称唯一性处理
+        $img = uniqid ().mt_rand(1000, 999).'.'.$ext;
+ 
+        // 物理地址
+        $imgPath = $uploadPath.$fileDir.$img;
+        // url地址
+        $imgUrl = 'http:/localhost/mall'.$uploadUrl.$fileDir.$img;
+
+        if (move_uploaded_file($file['tmp_name'], $imgPath)){
+             
+        }
+
+        var_dump($imgPath);
+        var_dump($imgUrl);
+        exit;
+        ;
+        exit;
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
