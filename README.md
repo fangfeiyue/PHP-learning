@@ -2024,6 +2024,8 @@ accept 属性只能与 `<input type="file">` 配合使用。它规定能够通�
 ```
 <input type="file" accept="image/png,image/gif,image/jpeg" id="file" name="file">
 ```
+
+
 ## 彩蛋
 
 vscode插件
@@ -2036,7 +2038,7 @@ vscode插件
 - mac os 下的 mamp 如何开启php的错误报告？
     - 打开 /Applications/MAMP/bin/php/{your PHP version}/conf/php.ini 文件
     - 找到 display_errors = Off （大概在 277 行的位置）把他改成 display_errors = On
-
+- 富文本编辑器 [kindeditor](http://kindeditor.net/demo.php)
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
