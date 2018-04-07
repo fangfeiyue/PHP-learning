@@ -2014,7 +2014,16 @@ enctype 属性规定在发送到服务器之前应该如何对表单数据进行
 - application/x-www-form-urlencoded	在发送前编码所有字符（默认）
 - text/plain 空格转换为 "+" 加号，但不对特殊字符编码。
 
+2. HTML `<input>` 标签的 `accept` 属性
 
+accept 属性只能与 `<input type="file">` 配合使用。它规定能够通过文件上传进行提交的文件类型。
+
+`提示：请避免使用该属性。应该在服务器端验证文件上传。`
+
+本例中的输入字段可以接受png、gif、jpeg图像
+```
+<input type="file" accept="image/png,image/gif,image/jpeg" id="file" name="file">
+```
 ## 彩蛋
 
 vscode插件
