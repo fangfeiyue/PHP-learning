@@ -28,6 +28,14 @@ function createPassword($password){
     return md5(md5($password).'wanlisun?123');
 }
 
+/**
+ * 消息提示
+ *
+ * @param int $type 1 成功 2 失败
+ * @param string $msg 提示信息
+ * @param string $url 要跳转的url
+ * @return void
+ */
 function msg($type, $msg = null, $url = null){
     $toUrl  = "location:msg.php?type=${type}";
     $toUrl .= $msg ? "&msg=${msg}" : "";

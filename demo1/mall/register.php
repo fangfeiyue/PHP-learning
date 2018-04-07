@@ -8,20 +8,16 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
     $repassword = trim($_POST['repassword']);
 
     if (!$userName){
-        echo '用户名不能为空';
-        exit;
+        msg(2, '用户名不能为空');
     }
     if (!$password){
-        echo '密码不能为空';
-        exit;
+        msg('密码不能为空');
     }
     if (!$repassword){
-        echo '确认密码不能为空';
-        exit;
+        msg(2, '确认密码不能为空');
     }
     if ($repassword !== $password){
-        echo '两次输入密码不一致，请重新输入';
-        exit;
+        msg(2, '两次输入密码不一致，请重新输入');
     }
     
     // include_once 语句在脚本执行期间包含并运行指定文件。此行为和 include 语句类似，唯一区别是如果该文件中已经被包含过，则不会再次包含。如同此语句名字暗示的那样，只会包含一次。
@@ -36,8 +32,7 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
     $total = $data[0]['total'];
 
     if(isset($total) && $total > 0){
-        echo '用户名已经存在，请重新输入';
-        exit;
+        msg(2, '用户名已经存在，请重新输入');
     }
 
     // 密码加密处理
@@ -53,12 +48,12 @@ if (!empty($_POST['username']) || !empty($_POST['password']) || !empty($_POST['r
 
     // 判断是否成功插入数据
     if ($obj){
-        $userId = mysqli_insert_id($connect);
-        echo sprintf('恭喜您注册成功，用户名是%s，用户id是%s',$userName, $userId);
-        exit;
+        msg(1,'注册成功', 'login.php');
+        // $userId = mysqli_insert_id($connect);
+        // echo sprintf('恭喜您注册成功，用户名是%s，用户id是%s',$userName, $userId);
+        // exit;
     }else{
-        echo mysqli_error($connect);
-        exit;
+        msg(2, mysqli_error($connect));
     }
 
 }

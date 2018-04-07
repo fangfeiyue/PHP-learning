@@ -3,7 +3,6 @@ header('content-type:text/html;charset=utf-8');
 
 // session_start — 启动新会话或者重用现有会话
 session_start();
-
 $userName = trim($_POST['username']);
 $password = trim($_POST['password']);
 
@@ -13,15 +12,14 @@ if ($_SESSION['user'] && !empty($_SESSION['user'])){
 }
 
 if (!empty($userName) || !empty($password)){
+
     include_once './lib/func.php';
 
     if (!$userName){
-        echo '用户名不能为空';
-        exit;
+        msg(2, '用户名不能为空');
     }
     if (!$password){
-        echo '密码不能为空';
-        exit;
+        msg(2,'用户密码不存在');
     }
 
     // 数据库连接
@@ -39,13 +37,11 @@ if (!empty($userName) || !empty($password)){
             header('Location:index.php');
             exit;
         }else{
-            echo '密码输入错误，请重新输入';
-            exit;
+            msg(2, '密码输入错误，请重新输入');
         }
         exit;
     }else{
-        echo '用户名不存在，请重新输入';
-        exit;
+        msg(2,'用户名不存在，请重新输入');
     }
 }
 
