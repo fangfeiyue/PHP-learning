@@ -1982,7 +1982,55 @@ function mysqlInit($host, $userName, $password, $dbName){
 }
 ```
 
+2018年04月05日17:53:53
 
+1. mysqli_insert_id() 函数返回最后一个查询中自动生成的 ID（通过 AUTO_INCREMENT 生成）
+```
+$userId = mysqli_insert_id($connect);
+```
+
+2. js读取php变量
+```
+var url = "<?php echo $url ?>";
+```
+
+3. html中运用php的条件判断
+```
+<?php if ($type == 1): ?>
+    <span class="smile_face">:)</span>           
+<?php else: ?>
+    <span class="smile_face">:(</span>
+<?php endif; ?>
+```
+
+2018年04月07日13:48:15
+
+1. HTML `<form>` 标签的 `enctype` 属性
+ 
+enctype 属性规定在发送到服务器之前应该如何对表单数据进行编码。
+
+属性值
+- multipart/form-data不对字符编码，在使用包含文件上传控件的表单时，必须使用该值。
+- application/x-www-form-urlencoded	在发送前编码所有字符（默认）
+- text/plain 空格转换为 "+" 加号，但不对特殊字符编码。
+
+2. HTML `<input>` 标签的 `accept` 属性
+
+accept 属性只能与 `<input type="file">` 配合使用。它规定能够通过文件上传进行提交的文件类型。
+
+`提示：请避免使用该属性。应该在服务器端验证文件上传。`
+
+本例中的输入字段可以接受png、gif、jpeg图像
+```
+<input type="file" accept="image/png,image/gif,image/jpeg" id="file" name="file">
+
+3. php上传文件要打开`Php.int`修改`upload_max`的数值，这个值是限制最大上传文件大小的，根据自己实际需要来定就好。还需要修改`pox_max_size`的值，这个值限制form表单提交时所有input框中内容的大小。
+
+4. is_uploaded_file — 判断文件是否是通过 HTTP POST 上传的
+
+5. move_uploaded_file — 将上传的文件移动到新位置
+
+6. 
 
 ## 彩蛋
 
@@ -1996,7 +2044,7 @@ vscode插件
 - mac os 下的 mamp 如何开启php的错误报告？
     - 打开 /Applications/MAMP/bin/php/{your PHP version}/conf/php.ini 文件
     - 找到 display_errors = Off （大概在 277 行的位置）把他改成 display_errors = On
-
+- 富文本编辑器 [kindeditor](http://kindeditor.net/demo.php)
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 

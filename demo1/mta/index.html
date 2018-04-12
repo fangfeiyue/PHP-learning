@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.js"></script>
+    <script>
+        var requestUrl = 'http://mta.qq.com/h5/api/ctr_user_realtime?app_id=500602952&page=1';
+        function parseQueryString(url) {
+            var reg_url = /^[^\?]+\?([\w\W]+)$/,
+                reg_para = /([^&=]+)=([\w\W]*?)(&|$|#)/g,
+                arr_url = reg_url.exec(url),
+                ret = {};
+            if (arr_url && arr_url[1]) {
+                var str_para = arr_url[1],
+                    result;
+                while ((result = reg_para.exec(str_para)) != null) {
+                    ret[result[1]] = result[2];
+                }
+            }
+            console.log('rest===>>',ret);
+            return ret;
+        }
+        function objKeySort(obj) {
+            var sec = '3c25e779e6b4fbbd33bfa6cfdb43233c';
+            var newkey = Object.keys(obj).sort();
+            var newObj = '';
+            //以下代码为key=value拼接方法
+            for (var i = 0; i < newkey.length; i++) {
+                sec = sec + (newkey[i] + '=' + obj[newkey[i]]);
+            }
+            return sec;
+        }
+
+        // function getSign(requestUrl){
+        //     return md5(objKeySort(parseQueryString(requestUrl)));
+        // }
+        
+        console.log(md5(objKeySort(parseQueryString(requestUrl))));
+        requestUrl = 'http://mta.qq.com/h5/api/ctr_user_realtime?app_id=500602952&page=1&sign='+md5(objKeySort(parseQueryString(requestUrl)));
+        console.log(requestUrl);
+        $.ajax({
+            url: requestUrl,
+            type: 'POST',
+            dataType: 'json',
+            data: '',
+            success: function(res){
+                console.log(res);
+            },
+            error: function(error){
+                console.log(error.status);
+            }
+        });
+    </script>
+</body>
+
+</html>
