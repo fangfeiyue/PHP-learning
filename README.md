@@ -2173,6 +2173,49 @@ $mc->test();
 echo $mc->b; // 报错
 echo $mc->c; // 报错
 ```
+### 构造函数和析构函数
+- 具有构造函数的类会在每次创建新对象时先调用此方法，所以非常适合在使用对象之前做一些初始化工作.
+```
+// 不带参数的构造函数
+class MyClass {
+    public function __construct () {
+        echo '调动了构造函数';
+    }
+}
+
+$mc = new MyClass;
+
+// 带参数的构造函数
+class MyClass {
+    public $name;
+    public $age;
+
+    public function __construct ($name, $age) {
+        $this->name = $name;
+        $this->age = $age;
+        
+        echo $this->name, $this->age;
+    }
+}
+
+$mc = new MyClass('fang', 18);
+```
+- 析构函数会在到某个对象的所有引用都被删除或者当对象被显示销毁时执行
+```
+class Test {
+    public function __destruct () {
+        echo '执行了析构函数';
+    }
+}
+
+$test = new Test;
+$test = null;
+// or
+unset($test);
+// or
+exit('结束掉');
+```
+
 ## 彩蛋
 
 vscode插件
