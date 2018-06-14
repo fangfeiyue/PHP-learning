@@ -2032,6 +2032,100 @@ accept 属性只能与 `<input type="file">` 配合使用。它规定能够通�
 
 6. 
 
+2018年06月14日11:01:07
+
+### 类与对象
+
+- 对象是程序中的一种数据结构，用来表现某个事物，事物在程序中可以用某个对象来表示，以程序的角度，万事万物都可以称之为对象
+
+- 对象 归纳、总结抽象   --->  类
+- 类   具体实现 实例化  --->  对象 
+
+### 面向对象和面向过程
+- 面向过程把所有事物看作一整个运行过程
+- 面向对象把所有事物看作一个个对象交互运行
+
+### 面向对象三大特性简介
+- 封装 就是把对象的属性和服务结合成一个独立的相同单位，并尽可能隐藏对象的内部细节
+- 继承 类可以继承
+- 多态 不同的形态
+
+### 类与对象的代码实现
+
+- 如何声明类
+```
+[修饰符] class 类名
+{
+    [属性]
+    [方法]
+}
+```
+- 类的属性和方法必须添加访问修饰符，private、protected、public、var(被视为public，不建议使用)
+
+- 属性中的变量可以初始化，但是初始化的值必须是常数，这里的常熟是指PHP脚本在编译阶段时就可以得到其值，而不依赖于运行时的信息才能求值
+```
+class SimpleClass {
+    // 错误的属性声明
+    public $var = $myVar;
+    public $var1 = 'hello' . 'world';
+    // 正确的属性声明
+    public $var2 = 3;
+    public $var3 = array(true, false);
+}
+```
+
+`注意：目前高版本的PHP支持使用表达式初始化类属性，但为了保证代码的正确和规范性，建议还是使用常量对属性进行初始化`
+
+- 类的实例化
+```
+class Dog {
+    public $name = '小白';
+    public $age;
+    public function jiao () {
+        echo '旺旺'
+    }
+}
+
+$obj = new Dog(); // 实例化时，类名后面的括号可加可不加
+```
+### 属性与方法的调用
+- 可以使用 `->` (对象运算符)这种方式来访问非静态属性
+```
+class Student {
+    public $girl = 40;
+    public $boy = 40;
+
+    public function sum () {
+        echo '班级里有男生也有女生';
+    }
+}
+
+$student = new Student;
+
+// 调用属性
+echo $student-> girl;
+// 调用方法
+$student->sum();
+
+// 重新赋值
+$student->girl = '女生数量';
+echo $student->girl;
+```
+- 当一个方法在类定义内部被调用时，有一个可用的伪变量$this
+```
+class Student {
+    public $girl = 40;
+    public $boy = 40;
+
+    public function sum () {
+        echo $this->boy;
+        echo '班级里有男生也有女生';
+    }
+    public function show () {
+        $this->sum();
+    }
+}
+```
 ## 彩蛋
 
 vscode插件
