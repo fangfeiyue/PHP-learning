@@ -2215,7 +2215,30 @@ unset($test);
 // or
 exit('结束掉');
 ```
+###  static关键字
+#### static关键字的特点
+- static关键字来定义静态方法和属性
+- 声明类属性或方法为静态，就可以不实例化类而直接访问
+- 静态属性不能通过一个类已实例化的对象来访问（但静态方法可以）
+- 静态属性不可以由对象通过->操作符来访问
+- 由于静态方法不需要通过对象即可调用，所以伪变量$this在静态方法中不可用
+#### 静态访问的方式
+- 静态访问：`:: or self::`
+- 内部/外部 类名::属性名  类名::方法名
+- 内部调用  self::属性名    self::方法名
+```
+class MyClass {
+    public static $a = 'static';
+    public $b = '123';
+    public static function func1 () {
+        echo '静态方法调用'.self::$a;
+    }
+}
 
+echo MyClass::$a;
+MyClass::func1();
+echo MyClass::$b; // 非静态调用失败
+```
 ## 彩蛋
 
 vscode插件
