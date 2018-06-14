@@ -2123,6 +2123,33 @@ class Student {
     }
 }
 ```
+### 对象的赋值
+```
+class Test {
+    public $str = '1234';
+}
+
+$test1 = new Test;
+$test2 = $test1;
+
+var_dump($test1); // object(Test)#1 (1) { ["str"]=> string(4) "1234" } 
+var_dump($test2); // object(Test)#1 (1) { ["str"]=> string(4) "1234" }
+
+$test1->str = '678';
+
+var_dump($test1); // object(Test)#1 (1) { ["str"]=> string(3) "678" } 
+var_dump($test2); // object(Test)#1 (1) { ["str"]=> string(3) "678" } 
+
+$test1 = '123';
+var_dump($test1); // 123
+var_dump($test2); // object(Test)#1 (1) { ["str"]=> string(3) "678" }
+
+$test2 = &$test1;
+var_dump($test1); // 123
+var_dump($test2); // 123
+```
+
+### 访问控制
 ## 彩蛋
 
 vscode插件
