@@ -2156,6 +2156,23 @@ var_dump($test2); // 123
     - 被定义为受保护的类成员则可以被其自身以及其子类和父类访问
     - 被定义为私有的类成员则只能被其定义所在的类访问
 ![可见性约束](https://github.com/fangfeiyue/PHP-learning/blob/master/img/public.png)
+```
+class MyClass {
+    public $a = 'public';
+    protected $b = 'protected';
+    private $c = 'private';
+
+    public function test () {
+        echo '<br/>',$this->a,' ', $this->b,' ', $this->c;
+    }
+}
+
+$mc = new MyClass;
+echo $mc->a;
+$mc->test();
+echo $mc->b; // 报错
+echo $mc->c; // 报错
+```
 ## 彩蛋
 
 vscode插件
