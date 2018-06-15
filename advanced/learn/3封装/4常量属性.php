@@ -4,5 +4,6 @@ class MyClass {
     public static $a = 'abc';
     const num = 123;
 }
+
 echo MyClass::$a;
 echo MyClass::num;
