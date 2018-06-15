@@ -2237,8 +2237,33 @@ class MyClass {
 
 echo MyClass::$a;
 MyClass::func1();
-echo MyClass::$b; // 非静态调用失败
+// echo MyClass::$b; // 非静态调用失败
+
+$mc = new MyClass;
+// echo $mc->a; // 对象使用->去调用静态属性 失败
+echo $mc->b; // 123
 ```
+- 静态方法中调用静态方法
+`注意：在类的内部，静态方法中是不可以使用$this伪变量的`
+```
+class Test {
+    public static $name = 'fang';
+
+    public static function getName () {
+        echo '<br/>'.self::$name;
+    }
+    public static function getEcho () {
+        // 不可以用$this去调用
+        self::getName();
+    }
+}
+
+$test = new Test;
+$test->getEcho();
+// or
+Test::getEcho();
+```
+
 ## 彩蛋
 
 vscode插件
