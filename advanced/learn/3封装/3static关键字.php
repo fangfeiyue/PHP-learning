@@ -42,3 +42,49 @@ $test = new Test;
 $test->getEcho();
 Test::getEcho();
 $test->func3();
+
+
+
+
+
+
+class Shop
+{
+    //设置$banana和$price两个属性
+    public static $banana;
+    public static $price;
+   //设置价格的静态方法
+	public static function setPrice($price){
+		 self::$price = $price;
+	}
+    //获取价格的方法
+	public function getPrice(){
+		echo Shop::$price;
+	}
+}
+//实例化对象
+$shop = new Shop;
+//调用静态发方法设置价格
+$shop->setPrice(100);
+//获取设置后的价格并打印
+$shop->getPrice();
+
+
+
+
+class Testt{
+    const age=12;
+    function test1 () {
+        echo self::age.'居然成功了';
+    }
+}
+
+echo Testt::age; //12
+
+
+// 警告  Deprecated: Non-static method Testt::test1() should not be called statically in /Users/toto/Desktop/PHP/php/PHP-learning/advanced/learn/3封装/3static关键字.php on line 83
+Testt::test1(); //12
+
+
+$testt = new Testt;
+$testt->test1(); // 成功调用

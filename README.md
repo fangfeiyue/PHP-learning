@@ -2269,7 +2269,20 @@ $test->getEcho();
 Test::getEcho();
 $test->func3();
 ```
-
+2018年06月15日15:48:19
+### 常量属性
+- 关键字const可以把在类中始终保持不变的值定义为常量
+- 常量的值必须是一个定值
+- 调用方式通static
+- 默认为public 
+```
+class MyClass {
+    public static $a = 'abc';
+    const num = 123;
+}
+echo MyClass::$a;
+echo MyClass::num;
+```
 ## 彩蛋
 
 vscode插件
