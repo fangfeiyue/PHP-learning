@@ -30,8 +30,15 @@ class Test {
     public static function getEcho () {
         self::getName();
     }
+    public function func3 () {
+        echo '<br/>'.self::$name;
+        echo '<br/>'.Test::$name;
+        // echo '<br/>'.$this->name; // 调用静态属性失败
+        echo '<br/>'.$this->getName();  //
+    }
 }
 
 $test = new Test;
 $test->getEcho();
 Test::getEcho();
+$test->func3();

@@ -2244,7 +2244,7 @@ $mc = new MyClass;
 echo $mc->b; // 123
 ```
 - 静态方法中调用静态方法
-`注意：在类的内部，静态方法中是不可以使用$this伪变量的`
+`注意：在类的内部，静态方法中是不可以使用$this伪变量的，但如果不再静态方法中可以使用$this去调用静态方法，但不可以去调用静态属性`
 ```
 class Test {
     public static $name = 'fang';
@@ -2253,8 +2253,13 @@ class Test {
         echo '<br/>'.self::$name;
     }
     public static function getEcho () {
-        // 不可以用$this去调用
         self::getName();
+    }
+    public function func3 () {
+        echo '<br/>'.self::$name;
+        echo '<br/>'.Test::$name;
+        // echo '<br/>'.$this->name; // 调用静态属性失败
+        echo '<br/>'.$this->getName();  //
     }
 }
 
@@ -2262,6 +2267,7 @@ $test = new Test;
 $test->getEcho();
 // or
 Test::getEcho();
+$test->func3();
 ```
 
 ## 彩蛋
