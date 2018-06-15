@@ -2286,11 +2286,69 @@ echo MyClass::num;
 ### 类与对象的属性重载
 PHP所提供的重载是指动态的创建类属性和方法。我们是通过魔术方法来实现的。当调用当前环境下`未定义`或`不可见`的类属性或方法时，重载方法会被调用。
 - 在给不可访问属性赋值时，_set()会被调用
+```
+class MyClass {
+    public $name = 'fang';
+    protected $age = 18;
+    public function __get ($n) {
+        // echo '触发了不可访问的属性'.$n;
+        return $this->age;
+    }
+    public function __set ($n, $v) {
+        $this->$n = $v;
+     }
+}
+
+$xiao = New MyClass;
+
+echo $xiao->age = 33; // 33
+echo $xiao->age;    // 33
+```
 - 读取不可访问属性的值时，_get()会被调用
+```
+class MyClass {
+    public $name = 'fang';
+    protected $age = 18;
+    public function __get ($n) {
+        if ($n) {
+            return 22;
+        }else {
+            echo '不许问了';
+        }
+    }
+}
+
+$xiao = New MyClass;
+
+echo $xiao->age;
+echo $xiao-=>xxx;  // 不许问了
+```
 - 当对不可访问属性调用isset()或empty()时，_isset()会被调用
+```
+class MyClass {
+    public $name = 'fang';
+    protected $age = 18;
+    public function __isset ($n) {
+        echo '判断一个不可访问的属性是否存在'.$n;
+    }
+}
+
+$xiao = New MyClass;
+isset($xiao->age);
+```
 - 当对不可访问属性调用unset()时，_unset()会被调用
+```
+class MyClass {
+    public $name = 'fang';
+    protected $age = 18;
+    public function __unset ($n) {
+        echo '销毁一个不可访问的属性'.$n;
+    }
+}
 
-
+$xiao = New MyClass;
+unset($xiao->age);
+```
 ## 彩蛋
 
 vscode插件
