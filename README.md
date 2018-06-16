@@ -2384,6 +2384,47 @@ $mc = new MyClass;
 $mc->func2('1212');
 ```
 ### 类的继承
+- 子类继承父类所有公有的和受保护的属性和方法
+- 继承关键字extends一个类继承另一个类，不能继承多个
+- 派生类、子类是指继承于基类的类
+- 基类、父类、超类是指被继承的类
+- protected子类可以继承，但不能在外部调用
+- private子类没有继承找不到属性或方法
+![约束](https://github.com/fangfeiyue/PHP-learning/blob/master/img/jicheng.jpg)
+```
+class FatherClass {
+    public $a = 'public';
+    protected $b = 'protected';
+    private $c = 'private';
+
+    public function func1 () {
+        echo 'public func';
+    }
+    protected function func2 () {
+        echo 'protected func';
+    }
+    private function func3 () {
+        echo 'private func';
+    }
+}
+
+class ChildClass extends FatherClass {
+    function test () {
+        $this->func1();
+        $this->func2();
+        // $this->func3(); // Fatal error
+    }
+}
+$child = new ChildClass;
+echo $child->a;
+// echo $child->b; //  Fatal error
+// echo $child->c; // Notice: Undefined property
+
+$child->func1();
+// $child->func2(); // Fatal error
+// $child->func3(); // Fatal error
+$child->test();
+```
 ## 彩蛋
 
 vscode插件
