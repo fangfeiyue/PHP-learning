@@ -2349,6 +2349,41 @@ class MyClass {
 $xiao = New MyClass;
 unset($xiao->age);
 ```
+2018年6月16日17:12:06
+### 方法重载
+- 对象中调用一个不可访问方法时，__call()会被调用
+```
+class MyClass {
+    private function func ($n) {
+        echo '这是一个不可访问的方法';
+        echo '参数是'.$n;
+    }
+    public function __call ($name, $value) {
+        echo '触发了不可访问的方法';
+        var_dump($name);
+        var_dump($value);
+    }
+}
+
+$mc = new MyClass;
+$mc->func('aaaa', 123);
+```
+_ 在静态上下文中调用一个不可访问方法时，__callStatic()会被调用
+```
+class MyClass {
+    private static function func2 () {
+
+    }
+    public static function __callStatic ($name, $value) {
+        var_dump($name);
+        var_dump($value);
+    }
+}
+
+$mc = new MyClass;
+$mc->func2('1212');
+```
+### 类的继承
 ## 彩蛋
 
 vscode插件
