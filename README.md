@@ -2390,7 +2390,7 @@ $mc->func2('1212');
 - 基类、父类、超类是指被继承的类
 - protected子类可以继承，但不能在外部调用
 - private子类没有继承找不到属性或方法
-![约束](https://github.com/fangfeiyue/PHP-learning/blob/master/img/jicheng.jpg)
+![约束](https://github.com/fangfeiyue/PHP-learning/blob/master/img/jicheng.png)
 ```
 class FatherClass {
     public $a = 'public';
