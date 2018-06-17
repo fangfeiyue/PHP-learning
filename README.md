@@ -2425,6 +2425,128 @@ $child->func1();
 // $child->func3(); // Fatal error
 $child->test();
 ```
+### 重写和final关键字
+- 重写：继承父类中的方法，子类中定义的与父类同名的方法
+- 当一个子类重写父类的中的方法时，不用调用父类中已被重写的方法。是否调用父类的方法取决于子类
+- 关键字`parent::`访问父类中的被重写的属性和方法
+- 如果父类中的方法被声明为final,则子类无法重写该方法。如果一个类被声明为final,则不能被继承
+- 子类中调用父类中的方法可以通过`parent::`和`$this`
+### 抽象类和修饰关键字顺序
+- 接口的多种不同的实现方式即为多态，同一操作作用于不同的对象，可以有不同的解释，产生不同的执行结果。
+- 抽象类不一定非要有抽象方法，抽象方法的声明关键字`abstract`
+```
+// 运行正常
+abstract class A {
+    
+}
+```
+- 抽象方法只是声明了其调用方式(参数), 不能定义其具体的功能实现
+- 抽象类不能被实例化，但可以被继承-
+```
+// 这里，类前面的abstract不可以删掉
+abstract class AbstractClass {
+    abstract public function func1 ();
+    public function func2 () {
+
+    }
+}
+
+class Child extends AbstractClass {
+    public function func1 () {
+        echo 'hello world';
+    }
+}
+
+$child = new Child;
+$child->func1();
+```
+- 抽象类可以继承抽象类
+```
+abstract class AbstractClass {
+    abstract public function func1 ();
+    public function func2 () {
+
+    }
+}
+abstract class Son extends AbstractClass {
+    
+}
+```
+- 修饰关键字顺序
+    - abstract、final必须声明在访问修饰符之前
+    - static必须声明在访问修饰符之后
+### 接口
+- 使用接口(interface)，可以指定某个类必须实现哪些方法，但不需要定义这些方法的具体内容，接口也可以定义常量。
+- 接口不能有方法的具体定义和变量属性，只声明了方法名称和常量
+- 实现关键字`implements`一个类可以实现多个接口
+```
+interface MyInterface {
+    public function func1();
+}
+interface YourInterface {
+    public function func2 ();
+}
+
+class ParentClass {
+
+}
+
+class ChildClass extends ParentClass implements MyInterface, YourInterface {
+    public function func1() {
+
+    }
+    public function func2 () {
+        
+    }
+}
+```
+- 接口也可以继承，关键字extends
+```
+interface ParentInterface {
+    public function func1 ();
+}
+interface ChildInterface extends ParentInterface {
+    public function func2();
+}
+class TestClass implements ChildInterface {
+    public function func1 () {}
+    public function func2 () {}
+} 
+```
+- 接口里定义的方法都是抽象方法，只有方法名称，没有方法体，不需要加抽象关键字`abstract`,实现接口的类，必须实现接口中的所有方法
+```
+interface MyInterface {
+    const num = 123;
+    public function func1 ();
+    public function func2 ();
+}
+class MyClass implements MyInterface {
+    public function func1 () {
+
+    }
+    public function func2 () {
+
+    }
+}
+abstract class MyAbstract implements MyInterface {
+    abstract function func1 ();
+    abstract function func2 ();
+}
+```
+2018年6月17日09:29:33
+### 类型约束
+#### 类型运算符
+- `instanceof`用于确定一个PHP变量是否属于某一个类的实例
+- `instanceof`也可以用来确定一个变量是不是继承自某一父类的实例
+- `instanceof`也可以用于确定一个变量是不是实现了某个接口的类的实例
+#### 类型约束
+- PHP5可以使用类型约束，函数的参数可以指定其类型
+- 如果一个类或接口指定了类型约束，则其所有的子类或实现也如此
+- 类型约束不能使用标量类型如int or string
+- 在类的类型约束中，如果变量是约束类的子类实例对象，即满足约束条件，如果是父类或者兄弟类则不满足
+### 条件约束和自动加载
+
+
 ## 彩蛋
 
 vscode插件
