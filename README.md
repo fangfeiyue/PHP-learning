@@ -2545,8 +2545,70 @@ abstract class MyAbstract implements MyInterface {
 - 类型约束不能使用标量类型如int or string
 - 在类的类型约束中，如果变量是约束类的子类实例对象，即满足约束条件，如果是父类或者兄弟类则不满足
 ### 条件约束和自动加载
+- `__autoload()`函数也能自动加载类和接口，但是比较老的一种方式，以后的版本当中可以会被弃用
+```
+function __autoload ($a) {
+    var_dump($a);
+    include './class_b/'.$a.'.class.php';
+}
+class A extends B {
 
+}
+```
+- `spl_autoload_register()`函数可以注册任意数量的自动加载器，当使用尚未被定义的类和接口时自动去加载
+```
+// 使用方式一
+function myLoad ($a) {
+    var_dump($a);
+    include './class_b/'.$a.'.class.php';
+}
 
+/**
+ * 参数一：需要注册的自动装载函数
+ * 参数二：如果没有找到参数一的函数，是否抛出异常错误
+ * 参数三：是否把参数一的函数添加到队列之首
+ */
+spl_autoload_register('myLoad', true, true);
+class A extends B {
+
+}
+
+// 使用方式二
+class MyLoader {
+    public static function test ($a) {
+        include './class_b/'.$a.'.class.php';
+    }
+}
+
+spl_autoload_register(['MyLoader', 'test'], true, true);
+
+class A extends B {
+
+}
+
+// 使用方式三
+class MyLoader {
+    public function func1 ($a) {
+        include './class_b/'.$a.'.class.php';
+    }
+    public function init () {
+        spl_autoload_register([$this, 'func1'], true, true);
+    }
+}
+
+$myLoader = new MyLoader;
+$myLoader->init();
+
+class A extends B {
+
+}
+
+// 也可以加载接口，与加载类类似，这里不做实现
+```
+
+对象、类、抽象类、接口之间的关系
+![关系](https://github.com/fangfeiyue/PHP-learning/blob/master/img/11.png)
+### 命名空间
 ## 彩蛋
 
 vscode插件
