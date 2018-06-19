@@ -1,8 +1,9 @@
 <?php
-
+namespace A\B;
 function test () {
-    echo '成功调用了test方法';
+    echo 'test function';
 }
-
-$b = 'test';
-$b();
+namespace A;
+$a = 'A\B\test';
+$a = '\A\B\test';
+$a();
