@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件上传</title>
+    <script type="javascript" src="../static/js/jquery-1.11.1.min.js"></script>
+	<script type="javascript" src="../static/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <div class="col-sm-4 col-sm-offset-4" style="margin-top: 100px">
+        <div class="panel panel-primary">
+            <div class="panel-heading">PHP单文件上传</div>
+            <div class="panel-body">
+                <form role="form" action="upload.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input name="upload" type="file" class="form-control">
+                    </div>
+                    <div class="form-gruop">
+                        <input type="submit" value="上传文件" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
