@@ -2626,6 +2626,70 @@ namespage MyProject {
     /*内容代码*/
 }
 ```
+2018年06月19日13:04:41
+```
+namespace A;
+function time() {
+    echo '时间函数';
+}
+
+time();
+
+namespace B;
+function time() {
+    echo '时间函数';
+}
+
+time();
+
+// 调用A命名空间下的time方法
+\A\time();
+// 调用B命名空空间下的time方法
+\B\time();
+// 调用系统的time方法
+echo \time();
+```
+### 命名空间的基本使用（下）
+- 声明单个命名空间 namespace MyProject;
+- 定义子命名空间 namespace MyProject/Sub/Level;
+```
+namespace A\B;
+class MyClass {
+    public function __construct () {
+        echo '空间A\B中的类实例化了<br/>';
+    }
+}
+
+namespace A;
+class MyClass {
+    public function __construct () {
+        echo '空间A中的类实例化了<br/>';
+    }
+}
+
+ $obj = new MyClass; // 空间A中的类实例化了             非限定名称
+ $obj = new \A\B\MyClass; // 空间A\B中的类实例化了      完全限定名称    从根空间写起
+ $obj = new \A\MyClass; // 空间A中的类实例化了          完全限定名称
+ $obj = new B\MyClass;  // 空间A\B中的类实例化了        限定名称
+```
+- 可以在同一个文件中定义多个命名空间
+- 如果没有定义任何命名空间，所有的类与函数的定义都是在全局空间，与PHP引入命名空间概念前一样。
+- 在名称前加前缀`\`表示该名称是全局空间中的名称，即使该名称位于其他的命名空间中时也是如此。
+- 常量`__NAMESPACE__`的值是包含当前命名空间名称的字符串
+- 在全局的，不包括在任何命名空间中的代码，它包含一个空的字符串。
+- include引入的文件不会导致当前命名空间名称发生改变
+```
+namespace A\B;
+class MyClass {
+    public function __construct () {
+        echo '空间A\B中的类实例化了<br/>';
+    }
+}
+echo __NAMESPACE__.'<br/>'; // A\B
+include './6_1.php';    // 引入包含A命名空间的文件
+echo __NAMESPACE__; // A\B
+```
+ 
 ## 彩蛋
 
 vscode插件
