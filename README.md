@@ -2720,6 +2720,17 @@ $obj = new MyClass;
 use A\B\C\MyClass, C\D\Test as T;
 $obj = new T;
 ``` 
+### PHP文件上传配置
+#### php.ini中和文件上传相关的配置
+- file_uploads 是否允许通过PHP上传文件，默认为on
+- upload_tmp_dir 上传文件在处理之前必须先上传到服务器上的某个临时目录，此目录由参数决定，再将上传文件移到最终目的地，此目录需要有读写权限
+- max_input_time 对POST/GET/PUT方式接收数据的时间限制，单位s
+- max_execution_time 等待脚本执行完毕的最大时间，单位s,此配置可终止PHP脚本中可能出现的死循环，但如需上传大文件时，此配置数值不能过小，否则可能导致文件上传未完成而被强制终止。
+- upload_max_filesize   允许上传文件的最大值，默认为2MB
+- post_max_size 控制采用POST方式进行表单提交时，PHP允许接受的最大数据量，单位MB，由于post数据中除了文件外可能包含其他表单域数据，所以应设置一个大于upload_max_filesize的值
+- memory_limit  PHP的内存使用上限，避免正在运行的脚本过量使用系统资源，由于上传时内存处理数据中除了POST数据外可能包含其他数据，所以应设置一个大于post_max_size的值
+关系图
+![关系](https://github.com/fangfeiyue/PHP-learning/blob/master/img/neicun.png)
 ## 彩蛋
 
 vscode插件
