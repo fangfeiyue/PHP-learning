@@ -2731,6 +2731,13 @@ $obj = new T;
 - memory_limit  PHP的内存使用上限，避免正在运行的脚本过量使用系统资源，由于上传时内存处理数据中除了POST数据外可能包含其他数据，所以应设置一个大于post_max_size的值
 关系图
 ![关系](https://github.com/fangfeiyue/PHP-learning/blob/master/img/neicun.png)
+### PHP文件上传错误处理
+- $_FILES获取上传文件的变量
+- upload_err_ok:    上传成功
+- upload_err_ini_size:  上传文件超出upload_max_filesize限制
+- upload_from_size: 上传文件超出post_max_size限制
+- upload_err_partial:   因网络错误导致文件上传不完整
+- upload_err_no_file:   表单文件域未选中上传的文件
 ## 彩蛋
 
 vscode插件
