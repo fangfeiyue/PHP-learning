@@ -2732,12 +2732,14 @@ $obj = new T;
 关系图
 ![关系](https://github.com/fangfeiyue/PHP-learning/blob/master/img/neicun.png)
 ### PHP文件上传错误处理
-- $_FILES获取上传文件的变量
-- upload_err_ok:    上传成功
-- upload_err_ini_size:  上传文件超出upload_max_filesize限制
-- upload_from_size: 上传文件超出post_max_size限制
-- upload_err_partial:   因网络错误导致文件上传不完整
-- upload_err_no_file:   表单文件域未选中上传的文件
+- $_FILES[$filename][error]获取上传文件的变量
+- UPLOAD_ERR_OK:    上传成功    (0)
+- UPLOAD_ERR_INI_SIZE:  上传文件超出upload_max_filesize限制 (1)
+- UPLOAD_FROM_SIZE: 上传文件超出post_max_size限制   (2)
+- UPLOAD_ERR_PARTIAL:   因网络错误导致文件上传不完整    (3)
+- UPLOAD_ERR_NO_FILE:   表单文件域未选中上传的文件  (4)
+### PHP单文件上传表单布局
+
 ## 彩蛋
 
 vscode插件
