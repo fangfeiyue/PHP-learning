@@ -2741,9 +2741,13 @@ $obj = new T;
 ### PHP单文件上传表单布局
 ### PHP多文件上传结构搭建
 - [define在运行时定义一个常量](http://php.net/manual/zh/function.define.php)
+- [defined检查某个名称的常量是否存在](http://php.net/manual/zh/function.defined.php)
 - [str_replace字符串替换](http://php.net/manual/zh/function.str-replace.php)
 - [dirname返回路径中的目录部分](http://php.net/manual/zh/function.dirname.php)
 - [require_once PHP 会检查该文件是否已经被包含过，如果是则不会再次包含](http://php.net/manual/zh/function.require-once.php)
+- [empty检查一个变量是否为空](http://php.net/manual/zh/function.empty.php)
+- [in_array检查数组中是否存在某个值](http://php.net/manual/zh/function.in-array.php)
+- [file_get_contents将整个文件读入一个字符串](http://php.net/manual/zh/function.file-get-contents.php)
 ### PHP多文件上传之独立名称文件上传
 ## 彩蛋
 
