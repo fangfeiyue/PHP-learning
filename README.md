@@ -2739,6 +2739,7 @@ $obj = new T;
 - UPLOAD_ERR_PARTIAL:   因网络错误导致文件上传不完整    (3)
 - UPLOAD_ERR_NO_FILE:   表单文件域未选中上传的文件  (4)
 ### PHP单文件上传表单布局
+### PHP多文件上传结构搭建
 
 ## 彩蛋
 
