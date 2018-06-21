@@ -2750,6 +2750,20 @@ $obj = new T;
 - [file_get_contents将整个文件读入一个字符串](http://php.net/manual/zh/function.file-get-contents.php)
 ### PHP多文件上传之独立名称文件上传
 ### PHP多文件上传之名称组文件上传
+### PHP文件下载场景介绍
+### PHP文件下载代码实现
+```
+$fileName = $_GET['filename'];
+$filePath = './files/'.$fileName;
+
+if (!file_exists($filePath)) {
+    exit('文件不存在'); 
+}else {
+    header('Content-type:application/octet-stream');
+    header('Content-Disposition:attachment;filename='.basename($filePath));
+    readfile($filePath);
+}
+```
 ## 彩蛋
 
 vscode插件
