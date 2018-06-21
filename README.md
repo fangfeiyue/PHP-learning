@@ -2749,6 +2749,7 @@ $obj = new T;
 - [in_array检查数组中是否存在某个值](http://php.net/manual/zh/function.in-array.php)
 - [file_get_contents将整个文件读入一个字符串](http://php.net/manual/zh/function.file-get-contents.php)
 ### PHP多文件上传之独立名称文件上传
+### PHP多文件上传之名称组文件上传
 ## 彩蛋
 
 vscode插件
