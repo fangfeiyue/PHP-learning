@@ -2778,6 +2778,13 @@ $path = 'b'.DIRECTORY_SEPARATOR.'c'; // b/c
 //  755是设置文件权限，7代表所有者可读可写可执行，5代表所有组可读可执行，5代表其他用户可读可执行权限
 mkdir($path, 755, true);
 ```
+- [rmdir删除目录,该目录必须是空的](http://php.net/manual/zh/function.rmdir.php)
+### 读取目录操作
+
+
+
+
+
 ## 彩蛋
 
 vscode插件
