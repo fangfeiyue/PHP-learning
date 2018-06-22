@@ -2764,6 +2764,17 @@ if (!file_exists($filePath)) {
     readfile($filePath);
 }
 ```
+### 目录函数库常用API
+- [is_dir判断给定文件名是否是一个目录](http://php.net/manual/zh/function.is-dir.php)
+- [getcwd取得当前的工作目录](http://php.net/manual/zh/function.getcwd.php)
+- [disk_total_space返回一个目录的磁盘总大小](http://php.net/manual/zh/function.disk-total-space.php)
+- [dirname返回路径中的目录部分](http://php.net/manual/zh/function.dirname.php)
+- `DIRECTORY_SEPARATOR`根据操作系统的不同获取目录分隔符
+- [mkdir新建目录](http://php.net/manual/zh/function.mkdir.php)
+```
+//  755是设置文件权限，7代表所有者可读可写可执行，5代表所有组可读可执行，5代表其他用户可读可执行权限
+mkdir($path, 755, true);
+```
 ## 彩蛋
 
 vscode插件
