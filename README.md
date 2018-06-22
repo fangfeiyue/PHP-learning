@@ -2781,7 +2781,7 @@ mkdir($path, 755, true);
 - [rmdir删除目录,该目录必须是空的](http://php.net/manual/zh/function.rmdir.php)
 ### 读取目录操作
 - [opendir打开目录句柄](http://php.net/manual/zh/function.opendir.php)
-
+- [rewinddir倒回目录句柄]()
 ## 彩蛋
 
 vscode插件
