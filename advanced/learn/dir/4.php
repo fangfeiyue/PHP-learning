@@ -67,5 +67,39 @@ function read_directory ($path) {
     closedir($handler);
 }
 
-read_directory('king');
+// read_directory('king');
 
+/**
+ * 遍历目录下所有内容并返回
+ *
+ * @param string $path 目录名称
+ * @return mixed    false | array 
+ */
+function read_directory1(string $path) {
+    if (!is_dir($path)) {
+        return false;
+    }
+    $handler = opendir($path);
+
+    while (($item = @readdir($handler))!==false) {
+        if ($item != '.' && $item != '..') {
+
+            $pathName = $path.DIRECTORY_SEPARATOR.$item;
+            if (is_file($pathName)) {
+                echo '文件', $item, '<br/>';
+                $arr['file'][] = $item;
+            }else {
+                echo '目录', $item, '<br/>';
+                $arr['dir'] = $item;
+                $func = __FUNCTION__;
+                $func($pathName);
+            }
+        }
+    }
+
+    closedir($handler);
+    return $arr; 
+}
+
+$arr = read_directory1('king');
+var_dump($arr);
