@@ -2782,9 +2782,12 @@ mkdir($path, 755, true);
 ### 读取目录操作
 - [opendir打开目录句柄](http://php.net/manual/zh/function.opendir.php)
 - [rewinddir倒回目录句柄](http://php.net/manual/zh/function.rewinddir.php)
-
-### 封装遍历目录函数
-
+- [scandir列出指定路径中的文件和目录](http://php.net/manual/zh/function.scandir.php)
+- [glob寻找与模式匹配的文件路径](http://php.net/manual/zh/function.glob.php)
+```
+$info = glob('king/*.php');
+print_r($info); //Array ( [0] => king/1.php [1] => king/2.php )
+```
 ## 彩蛋
 
 vscode插件
@@ -2798,6 +2801,7 @@ vscode插件
     - 打开 /Applications/MAMP/bin/php/{your PHP version}/conf/php.ini 文件
     - 找到 display_errors = Off （大概在 277 行的位置）把他改成 display_errors = On
 - 富文本编辑器 [kindeditor](http://kindeditor.net/demo.php)
+- [PHP Server](https://marketplace.visualstudio.com/items?itemName=brapifra.phpserver)
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
