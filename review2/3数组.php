@@ -39,3 +39,10 @@ print_r($people3);
 # 多维数组
 $cars = [['name', 'sex', 'hjh'], ['name1', 'sex1', 'hjh1'], ['name2', 'sex2', 'hjh2']];
 echoStr($cars[2][2]);
+
+
+
+
+
+
+
