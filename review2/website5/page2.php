@@ -1,6 +1,15 @@
 <?php
+
   # 可以使用 $_COOKIE 读取。 Cookie 值同样也存在于 $_REQUEST
   $name = $_REQUEST["name"];
+
+  # 删除cookie
+  setcookie("name", "", time()-3600);
+
+  # 判断有几个cookie
+  if (count($_COOKIE)>0) {
+    echo "一共有".count($_COOKIE)."个cookie";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
