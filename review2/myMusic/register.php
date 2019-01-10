@@ -1,4 +1,5 @@
 <?php
+  include "./includes/classes/Constants.php";
   include "./includes/classes/Account.php";
 
   $account = new Account;

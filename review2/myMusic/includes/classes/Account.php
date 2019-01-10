@@ -10,11 +10,17 @@ class Account {
     $this->validateName($name);
     $this->validateEmail($email);
     $this->validatePassword($password1, $password2);
+
+    if (empty($this->errArray)) {
+      return true;
+    }else {
+      return false;
+    }
   }
 
   private function validateUserName($userName) {
     if (strlen($userName)>25 || strlen($userName)<5) {
-      array_push($this->errArray, "用户名长度要在5-25位之间");
+      array_push($this->errArray, Constants::$userNameCharacters);
       return;
     }
   }
@@ -40,6 +46,11 @@ class Account {
 
     if (preg_match("/[^A-Za-z0-9]", $password1)) {
       array_push($this->errArray, "密码只能是数字和字母组成！");
+      return;
+    }
+
+    if (strlen($password1)>25 || strlen($password1)<5) {
+      array_push($this->errArray, "密码长度应在5-25位之间");
       return;
     }
   }
