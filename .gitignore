@@ -1,0 +1,10 @@
+vendor
+.vscode
+*.log
+.DS_Store
+lib
+coverage
+release
+dist
+release
+.idea
